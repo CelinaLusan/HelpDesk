@@ -48,6 +48,7 @@ $(function(){
         	
         	$("#id_usuario").html(id_usuario);
         	getchat(id_usuario);
+        	setInterval(function(){getchat(id_usuario);},1000);
         });
 		$("#removeClass").click(function () {
         	$('#qnimate').removeClass('popup-box-on');
@@ -148,5 +149,5 @@ $(function(){
 	});
 	
 	var GetUsers = new getUsers();
-	//	setInterval(getchat,1000);
+	
 });

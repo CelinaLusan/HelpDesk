@@ -87,6 +87,5 @@ $(function(){
 			}
 		});
 	});
-	var Getchat = new getchat();
-//	setInterval(getchat,1000);
+	setInterval(getchat,1000);
 });
