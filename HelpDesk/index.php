@@ -2,7 +2,7 @@
     session_start();
     if(isset($_SESSION['usuario'])){
         if($_SESSION['tipo'] == 1){
-            header("location: html/menucl.php");
+            header("location: menuad.php");
         }
         else{
             header("location: menuUser.php");
