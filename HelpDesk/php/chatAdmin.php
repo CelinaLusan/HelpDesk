@@ -4,7 +4,7 @@
 	session_start();
 	$jsondata = json_decode($_POST["json"]);
 	if($jsondata->funcion == "setmensaje"){
-		$id_usuario = $_SESSION['id_usuario'];
+		$id_usuario = $jsondata->id_usuario;
 		$nom_user = $_SESSION['usuario'];
 		if($_SESSION['usuario']=="admin"){
 			$envio = 0;

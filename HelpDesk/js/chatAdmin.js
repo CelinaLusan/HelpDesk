@@ -45,6 +45,8 @@ $(function(){
 		$(".addClass").click(function (e) {
         	$('#qnimate').addClass('popup-box-on');
         	id_usuario = e['originalEvent'].target.title;
+        	
+        	$("#id_usuario").html(id_usuario);
         	getchat(id_usuario);
         });
 		$("#removeClass").click(function () {
@@ -120,20 +122,23 @@ $(function(){
 	}
 	$("#enviarmensaje").click(function(e){
 		var mensaje = $("#status_message").val();
-		console.log(mensaje);
+		id_usuario = $("#id_usuario").html();
+		
+		
 		var dat = {
-			"mensaje" : mensaje,
-			"funcion" : "setmensaje"
+			"mensaje" 		: mensaje,
+			"funcion" 		: "setmensaje",
+			"id_usuario" 	: id_usuario
 		}
 		var jsonC = JSON.stringify(dat);
 		console.log(jsonC);
 		$.ajax({
-			url : "php/chat.php",
+			url : "php/chatAdmin.php",
 			type : "POST",
 			data : 'json=' + jsonC,
 			dataType: "json",
 			success : function(res){
-				var Getcha = new getchat();
+				getchat(id_usuario);
 				console.log("hecho");
 			},
 			error : function(res){
