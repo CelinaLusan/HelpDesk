@@ -447,6 +447,7 @@
 <!-- Chat -->
 
 <div class="popup-box chat-popup" id="qnimate">
+            <div id="id_usuario" style="display: none;"></div>
             <div class="popup-head">
                 <div class="popup-head-left pull-left"><img src="images/user.png" alt="iamgurdeeposahan">Administrador</div>
                     <div class="popup-head-right pull-right">
