@@ -1,0 +1,24 @@
+#banderaMexico{
+    background: url(../images/mexico.png);
+    background-repeat:no-repeat;
+    padding-left:25px;
+    line-height:50px;
+    margin-bottom:2px;
+}
+
+#banderaEU{
+    background: url(../images/estados-unidos.png);
+    background-repeat:no-repeat;
+    padding-left:25px;
+    line-height:50px;
+    margin-bottom:2px;
+}
+
+#title{
+    color: white;
+    font-weight: bolder;
+}
+#error{
+    display: none;
+    color: #FF0E14;
+}
