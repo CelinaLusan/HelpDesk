@@ -1,7 +1,4 @@
 $(function(){
-	tengoAVenar = fuincio el ceach?{
-
-	}
 	eliminarRestrinccion = function (id_restrinccion_red){
 		var dat = {
 			"id_restrinccion_red"	: id_restrinccion_red, 
@@ -35,6 +32,7 @@ $(function(){
 			data : 'json=' + jsonC,
 			dataType: "json",
 			success : function(res){
+				console.log("res");
 				var template = "";
 				$("#tbodyRestricciones").html("");
 				$.each(res, function(key,value){
@@ -61,14 +59,28 @@ $(function(){
 					}
 					if(value['id_estado'] == 3){
 						template += '<td>'+
+										'<span class="btn btn-info">En espera</span>' +
+									'</td>'  ; 
+					}
+					if(value['id_estado'] == 4){
+						template += '<td>'+
 										'<span class="btn btn-primary">Cancelada</span>' +
 									'</td>'  ; 
 					}
-					template += '<td>'+
+					if(value['id_estado'] == 2){
+						template += '<td>'+
+									'<a href="#" class="btn btn-primary"><i class="fa fa-trash-o"></i> Eliminar</a>'+
+								'</td>'  + 
+							'</tr>';						
+					}
+					else{
+						template += '<td>'+
 									'<a href="#" class="btn btn-danger" onclick="eliminarRestrinccion('+
 									id_restrinccion_red +');"><i class="fa fa-trash-o"></i> Eliminar</a>'+
 								'</td>'  + 
 							'</tr>';
+
+					}
                 });
 				$("#tbodyRestricciones").html(template);
 			},
