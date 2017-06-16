@@ -30,7 +30,7 @@
         <link href="css/estilo.css" rel="stylesheet">
         <link href="css/bootstrap-select.css" rel="stylesheet">
         <link href="css/bootstrap-datepicker.css" rel="stylesheet">
-        
+		
         <!-- Custom Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
@@ -1013,7 +1013,7 @@
         </div>
         
 
-        <!-- start instalacionSoftware-modal Section -->
+		<!-- start instalacionSoftware-modal Section -->
         <div class="section-modal modal fade" id="instalacionSoftwareVer-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
@@ -1024,7 +1024,7 @@
                 </div>
                 
                 <div class="container">
-                    <h3 class="tituloTabla">Instalacion de software</h3>
+                	<h3 class="tituloTabla">Instalacion de software</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
@@ -1059,7 +1059,7 @@
                 </div>
                 
                 <div class="container">
-                    <h3 class="tituloTabla">Solicitud de software</h3>
+                	<h3 class="tituloTabla">Solicitud de software</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
@@ -1092,7 +1092,7 @@
                 </div>
                 
                 <div class="container">
-                    <h3 class="tituloTabla">Restricciones de red</h3>
+                	<h3 class="tituloTabla">Restricciones de red</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
@@ -1269,7 +1269,7 @@
         
         
         <script type="text/javascript">
-            $(function(){   
+            $(function(){	
                 $("#addClass").click(function () {
                           $('#qnimate').addClass('popup-box-on');
                             });
@@ -1279,7 +1279,7 @@
                             });
             });
             $('#restricciones-modalClic').click(function(){
-                $('.timepickerS').timepicker();
+            	$('.timepickerS').timepicker();
             });
         </script>              
     </body>
