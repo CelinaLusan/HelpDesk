@@ -21,7 +21,7 @@
 	echo $tipo_configuracion."<br>";
 	echo $razon."<br>";
 
-	$query = "INSERT INTO equipos_externos(equipo, id_usuario, tipo_configuracion, razon, id_estado) VALUES ('".$equipo."','".$id_usuario."','".$tipo_configuracion."','".$razon."','1');";
+	$query = "INSERT INTO equipos_externos(equipo, id_usuario, tipo_configuracion, razon, id_estado) VALUES ('".$equipo."','".$id_usuario."','".$tipo_configuracion."','".$razon."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
 ?>

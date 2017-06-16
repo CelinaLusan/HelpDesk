@@ -18,7 +18,7 @@
 	$row = $resultado->fetch_assoc();
 	$id_aula = $row['id_aula'];
 
-	$query = "INSERT INTO instalacion_software (id_aula, id_usuario, maquina, descripcion, software, id_estado) VALUES ('".$id_aula."','".$id_usuario."','".$maquina."','".$descripcion."','".$software."','1');";
+	$query = "INSERT INTO instalacion_software (id_aula, id_usuario, maquina, descripcion, software, id_estado) VALUES ('".$id_aula."','".$id_usuario."','".$maquina."','".$descripcion."','".$software."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
 	if($mysqli->affected_rows > 0){

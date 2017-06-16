@@ -18,7 +18,7 @@
 	$row = $resultado->fetch_assoc();
 	$id_aula = $row['id_aula'];
 
-	$query = "INSERT INTO restrinccion_red (id_aula, id_usuario, direccion, descripcion, hora, id_estado) VALUES ('".$id_aula."','".$id_usuario."','".$direccion."','".$descripcion."','".$hora."','1');";
+	$query = "INSERT INTO restrinccion_red (id_aula, id_usuario, direccion, descripcion, hora, id_estado) VALUES ('".$id_aula."','".$id_usuario."','".$direccion."','".$descripcion."','".$hora."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
 	if($mysqli->affected_rows > 0){

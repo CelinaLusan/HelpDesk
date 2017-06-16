@@ -9,7 +9,7 @@
 	echo $software."<br>";
 	echo $descripcion."<br>";
 
-	$query = "INSERT INTO solicitud_software (software, descripcion, id_usuario, id_estado) VALUES ('".$software."','".$descripcion."','".$id_usuario."','1');";
+	$query = "INSERT INTO solicitud_software (software, descripcion, id_usuario, id_estado) VALUES ('".$software."','".$descripcion."','".$id_usuario."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
 	if($mysqli->affected_rows > 0){

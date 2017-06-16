@@ -182,7 +182,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="menu-item green">
-                                    <a href="#solicitudSoftware-modal" data-toggle="modal">
+                                    <a href="#solicitudSoftware-modal" id="solicitudSoftware-modalClick" data-toggle="modal">
                                         <i class="fa fa-cogs"></i>
                                         <p>Solicitud/ instalacion de software</p>
                                     </a>
@@ -621,7 +621,7 @@
                                     </div>
                                     <div id="collapseOne1" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <form method="POST" action="php/agregarInstalacionSoftware.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                                            <form method="POST" action="php/agregarInstalacionSoftware.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>" id="SI">
                                                 <div class="form-group col-md-4">
                                                     <label>Aula</label>
                                                     <select class="form-control" name="aula">
@@ -639,7 +639,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label >Maquina</label>
-                                                    <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" />
+                                                    <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" id="maquinaSI" />
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label >Software a instalar</label>
@@ -651,7 +651,7 @@
                                                     </textarea>
                                                 </div>
                                                 <div class="form-group col-md-6 col-md-offset-5">
-                                                    <button class="btn btn-success btn-lg">Enviar</button> 
+                                                    <input class="btn btn-success btn-lg" value="Enviar" id="enviarSI"> 
                                                 </div>
                                             </form>
                                         </div>
@@ -1280,6 +1280,17 @@
             });
             $('#restricciones-modalClic').click(function(){
             	$('.timepickerS').timepicker();
+            });
+            $('#enviarSI').click(function(){
+                var a = $('#maquinaSI').val();
+                var patronIp=new RegExp("^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$");
+                if(a.search(patronIp)==0){
+                    valores=a.split(".");
+                    if(valores[0]<=255 && valores[1]<=255 && valores[2]<=255 && valores[3]<=255){
+                        $('#SI').submit();
+                        return;
+                    }
+                }
             });
         </script>              
     </body>
