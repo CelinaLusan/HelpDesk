@@ -210,7 +210,7 @@
                            
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#instalacionSoftware-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="instalacionSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
@@ -222,7 +222,7 @@
                            
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#solicitudSoftware-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
@@ -234,7 +234,7 @@
                            
                           </td>
                           <td>
-                            <a href="#restriccionesred-modal" class="btn btn-primary btn-xs" data-toggle="modal"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#restriccionesred-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="restriccionesredClic"><i class="fa fa-folder"></i> Ver </a>
                            
                             <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
@@ -403,8 +403,72 @@
             </div>
         </div>
         <!-- End cuentas de usuario -->
+        
 
-        <!-- Start cuentas de usuario -->
+        <!-- Start instalacaion software de red -->
+        <div class="section-modal modal fade" id="instalacionSoftware-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Instalacion de software</h4>
+            </div>
+                
+            <div class="modal-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Software</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyInstalacionSoftware">
+                    </tbody>
+                  </table>
+                </div>
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div>
+        
+  
+        <!-- Start solicitud software de red -->
+        <div class="section-modal modal fade" id="solicitudSoftware-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Solicitud de software</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Software</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodySolicitudSoftware">
+                    </tbody>
+                  </table>
+                </div>
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- Start restricciones de red -->
         <div class="section-modal modal fade" id="restriccionesred-modal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-content">
             <div class="modal-header">
@@ -418,14 +482,15 @@
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>Nombre</th>
-                        <th>Nombre de Usuario</th>
-                        <th>Tipo de cargo</th>
-                        <th>Razon</th>
-                        <th>Estatus</th>
+                        <th>Usuario</th>
+                        <th>direccion</th>
+                        <th>descripcion</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                        <th>Actividades</th>
                       </tr>
                     </thead>
-                    <tbody id="tableRestriccionRed">
+                    <tbody id="tbodyRestricciones">
                     </tbody>
                   </table>
                 </div>
@@ -508,10 +573,11 @@
     <script type="text/javascript" src="js/underscore-min.js"></script>
     <script type="text/javascript" src="js/backbone-min.js"></script>
     <script type="text/javascript" src="js/chatAdmin.js"></script>
+    <script type="text/javascript" src="js/datosAdmin.js"></script>
+
     <!--<script type="text/javascript" src="js/administradorRestriccionesRed.js"></script>
         -->
-   <script type="text/javascript">
-            
-    </script>
+  <script type="text/javascript">
+  </script>
   </body>
 </html>
