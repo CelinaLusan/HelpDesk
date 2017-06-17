@@ -206,8 +206,9 @@
 
 	if($jsondata->funcion == "eliminarCuentaTodo"){
 		$id_usuario = $_SESSION['id_usuario'];
-		$query = "DELETE FROM cuenta WHERE id_usuario = '".$id_usuario."'";
-		$query = "DELETE FROM restablecer WHERE id_usuario = '".$id_usuario."'";
+		$query = "DELETE FROM cuenta WHERE id_usuario = '".$id_usuario."';";
+		$resultado = $mysqli->query($query);
+		$query = "DELETE FROM restablecer WHERE id_usuario = '".$id_usuario."';";
 		$resultado = $mysqli->query($query);
 		echo json_encode($resultado);
 	}

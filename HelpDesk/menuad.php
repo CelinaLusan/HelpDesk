@@ -162,10 +162,9 @@
                             
                           </td>
                           <td>
+	                          <a href="#cuentasUsuario-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="cuentasUsuarioVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#cuentauser-modal" class="btn btn-primary btn-xs" data-toggle="modal"><i class="fa fa-folder"></i> Ver </a>
-                            
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                              <a href="#" class="btn btn-danger btn-xs" id="EliminarCuenta"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                         <tr>
@@ -175,9 +174,9 @@
                             
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
-                         
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+	                          <a href="#plataformasVirtuales-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="plataformasVirtualesVerClic"><i class="fa fa-folder"></i> Ver </a>
+                            
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarPlataformasVirtuales"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           <tr>
@@ -187,9 +186,9 @@
                             
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#solicitudEquipo-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudEquipoVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudEquipo"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           <tr>
@@ -199,9 +198,9 @@
                             
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#reporteDanios-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="reporteDaniosVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarDaniosEquipo"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           <tr>
@@ -213,7 +212,7 @@
                           <td>
                             <a href="#instalacionSoftware-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="instalacionSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarInstalacionSoftware"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                             <tr>
@@ -225,7 +224,7 @@
                           <td>
                             <a href="#solicitudSoftware-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudSoftware"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                             <tr>
@@ -237,7 +236,7 @@
                           <td>
                             <a href="#restriccionesred-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="restriccionesredClic"><i class="fa fa-folder"></i> Ver </a>
                            
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarRestriccionRed"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           
@@ -255,7 +254,7 @@
 
 
 <!-- Start cuentas de usuario -->
-        <div class="modal fade" id="cuentauser-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="cuentasUsuario-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                  <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -263,148 +262,171 @@
                 </div>
                 
                 <div class="modal-body">
-                   
-                    
-                    <div class="row">
-                      <div class="table-responsive">
-                      <!--
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Nombre</th>
-                  <th>Nombre de Usuario</th>
-                  <th>Tipo de cargo</th>
-                  <th>Razon</th>
-                  <th>Estatus</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                  <td>
-                    <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Editar </a> 
-                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a>
-                </td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>-->
-          </div>
-                    </div><!-- /.row -->
+                   <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                            	<h4 class="panel-title">
+                                	<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-user-plus"></i> Solicitar Cuenta de Usuario</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                            	<div class="panel-body">
+                            		<div class="table-responsive">
+					                  <table class="table table-striped">
+					                    <thead>
+					                      <tr>
+					                        <th>#</th>
+					                        <th>Usuario</th>
+					                        <th>Cuenta</th>
+					                        <th>Tipo</th>
+					                        <th>Nombre</th>
+					                        <th>Nombre de usuario</th>
+					                        <th>Razon</th>
+					                        <th>Estado</th>
+					                        <th>Acciones</th>
+					                      </tr>
+					                    </thead>
+					                    <tbody id="tbodyCuentasUsuario">
+					                    </tbody>
+					                  </table>
+					                </div>
+                               	</div>
+                            </div>
+                       	</div>
+                        <div class="panel panel-default">
+                        	<div class="panel-heading">
+                            	<h4 class="panel-title">
+                                	<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-pencil"></i> Restablecer Cuenta de Usuario</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                            	<div class="panel-body">
+                            		<div class="table-responsive">
+					                  <table class="table table-striped">
+					                    <thead>
+					                      <tr>
+					                        <th>#</th>
+					                        <th>Usuario</th>
+					                        <th>Nombre del usuario</th>
+					                        <th>Estado</th>
+					                        <th>Acciones</th>
+					                      </tr>
+					                    </thead>
+					                    <tbody id="tbodyPassword">
+					                    </tbody>
+					                  </table>
+					                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- End cuentas de usuario -->
+
+        <!-- Start solicitud equipo de red -->
+        <div class="modal fade" id="plataformasVirtuales-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Plataformas virtuales</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Falla</th>
+                        <th>Aula</th>
+                        <th>Maquina</th>
+                        <th>Hora</th>
+                        <th>Descripcion</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyPlataformasVirtuales">
+                    </tbody>
+                  </table>
+                </div>
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div>
         
+
+        <!-- Start solicitud equipo de red -->
+        <div class="modal fade" id="solicitudEquipo-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Solicitud de equipo</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Nombre de equipo</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de fin</th>
+                        <th>Descripcion</th>
+                        <th>Lugar</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodySolicitudEquipo">
+                    </tbody>
+                  </table>
+                </div>
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div>
+        
+        
+		<!-- Start reportes equipo de red -->
+        <div class="modal fade" id="reporteDanios-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Reporte de danos</h4>
+            </div>
+                
+            <div class="modal-body">
+              <div class="row">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Aula</th>
+                        <th>Maquina</th>
+                        <th>Hora</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyReporteDanios">
+                    </tbody>
+                  </table>
+                </div>
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div>
+        
+  
 
         <!-- Start instalacaion software de red -->
         <div class="modal fade" id="instalacionSoftware-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -422,6 +444,8 @@
                       <tr>
                         <th>#</th>
                         <th>Usuario</th>
+                        <th>Aula</th>
+                        <th>Maquina</th>
                         <th>Software</th>
                         <th>Descripción</th>
                         <th>Estado</th>

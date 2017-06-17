@@ -888,11 +888,10 @@
 						                      <thead>
 						                        <tr>
 						                          <th>#</th>
-						                          <th>Nombre de equipo</th>
-						                          <th>Fecha de inicio</th>
-						                          <th>Fecha de fin</th>
-						                          <th>Descripcion</th>
-						                          <th>Lugar</th>
+						                          <th>Cuenta</th>
+						                          <th>Nombre</th>
+						                          <th>Nombre de usuario</th>
+						                          <th>Razon</th>
 						                          <th>Estado</th>
 						                          <th>Acciones</th>
 						                        </tr>

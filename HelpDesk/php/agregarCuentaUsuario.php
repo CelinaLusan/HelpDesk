@@ -14,7 +14,7 @@
 	echo $nombre."<br>";
 	echo $razon."<br>";
 	
-	$query = "INSERT INTO cuenta (cuenta, tipo, nombre, usuario, id_usuario, id_estado) VALUES ('".$cuenta."','".$tipo."','".$nombre."','".$usuario."','".$id_usuario."','3');";
+	$query = "INSERT INTO cuenta (cuenta, tipo, nombre, usuario, id_usuario,razon, id_estado) VALUES ('".$cuenta."','".$tipo."','".$nombre."','".$usuario."','".$id_usuario."','".$razon."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
 	if($mysqli->affected_rows > 0){

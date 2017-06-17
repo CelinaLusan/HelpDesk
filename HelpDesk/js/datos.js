@@ -503,6 +503,9 @@ $(function(){
 							'</td>'  + 
 							'<td>'+
 								value['usuario'] +
+							'</td>'+ 
+							'<td>'+
+								value['razon'] +
 							'</td>'; 
 					if(value['id_estado'] == 1){
 						template += '<td>'+
