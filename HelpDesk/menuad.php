@@ -10,10 +10,11 @@
     <title>NovaDesk </title>
 
     <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+        
     <!-- Custom Theme Style -->
     <link href="build/css/custom.css" rel="stylesheet">
     <link href="css/chat.css" rel="stylesheet">
@@ -254,7 +255,7 @@
 
 
 <!-- Start cuentas de usuario -->
-        <div class="section-modal modal fade" id="cuentauser-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="cuentauser-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                  <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -406,7 +407,7 @@
         
 
         <!-- Start instalacaion software de red -->
-        <div class="section-modal modal fade" id="instalacionSoftware-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="instalacionSoftware-modal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -438,7 +439,7 @@
         
   
         <!-- Start solicitud software de red -->
-        <div class="section-modal modal fade" id="solicitudSoftware-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="solicitudSoftware-modal" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>

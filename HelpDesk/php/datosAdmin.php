@@ -23,6 +23,16 @@
 		$resultado = $mysqli->query($query);
 		echo json_encode($resultado);
 	}
+	if($jsondata->funcion == "update_restriccion_red"){
+		$id_restrinccion_red = $jsondata->id_restrinccion_red;
+		$id_estado = $jsondata->estado;
+		$rawdata = array();
+		$i=0;
+		$query = "UPDATE restrinccion_red SET id_estado = '".$id_estado."' WHERE id_restrinccion_red = '".$id_restrinccion_red."';";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	
 
 	#solicitudSoftware
 	if($jsondata->funcion == "solicitudSoftware"){
@@ -45,6 +55,17 @@
 		$resultado = $mysqli->query($query);
 		echo json_encode($resultado);
 	}
+	if($jsondata->funcion == "update_solicitud_software"){
+		$id_solicitud_software = $jsondata->id_solicitud_software;
+		$id_estado = $jsondata->estado;
+		$rawdata = array();
+		$i=0;
+		$query = "UPDATE solicitud_software SET id_estado = '".$id_estado."' WHERE id_solicitud_software = '".$id_solicitud_software."';";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	
+
 
 	#instalacionSoftware
 	if($jsondata->funcion == "instalacionSoftware"){

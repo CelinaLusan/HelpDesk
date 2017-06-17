@@ -75,21 +75,30 @@ $(function(){
 								value['hora'] + 
 							'</td>'  ;
 					template += '<td>'+
-									'<select id="restriccion_redSelect" title="'+value['id_restrinccion_red']+'">';
+									'<select id="restriccion_redSelect" onChange="cambioRestriccionRed(this,'+value['id_restrinccion_red']+')" title="'+value['id_restrinccion_red']+'">';
 							if(value['id_estado'] == 1){
 								template +='<option selected="" value="1">' + "Terminada" + '</option>'+ 
 										'<option value="2">' + "Pendiente" + '</option>'+ 
-										'<option value="3">' + "Cancelada" + '</option>';
+										'<option value="3">' + "Es espera" + '</option>'+ 
+										'<option value="4">' + "Cancelada" + '</option>';
 							}
 							if(value['id_estado'] == 2){
 								template +='<option value="1">' + "Terminada" + '</option>'+ 
 										'<option selected="" value="2">' + "Pendiente" + '</option>'+ 
-										'<option value="3">' + "Cancelada" + '</option>';
+										'<option value="3">' + "En espera" + '</option>'+ 
+										'<option value="4">' + "Cancelada" + '</option>';
 							}
 							if(value['id_estado'] == 3){
 								template +='<option value="1">' + "Terminada" + '</option>'+ 
 										'<option value="2">' + "Pendiente" + '</option>'+ 
-										'<option selected="" value="3">' + "Cancelada" + '</option>';
+										'<option selected="" value="3">' + "En espera" + '</option>'+ 
+										'<option value="4">' + "Cancelada" + '</option>';
+							}
+							if(value['id_estado'] == 4){
+								template +='<option value="1">' + "Terminada" + '</option>'+ 
+										'<option value="2">' + "Pendiente" + '</option>'+ 
+										'<option value="3">' + "En espera" + '</option>'+ 
+										'<option value="4" selected="">' + "Cancelada" + '</option>';
 							}
 					template +=									
 									'</select>'+
@@ -100,7 +109,6 @@ $(function(){
 								'</td>'  + 
 							'</tr>';
                 });
-                selectCambiar();
 				$("#tbodyRestricciones").html(template);
 			},
 			error : function(res){
@@ -109,17 +117,26 @@ $(function(){
 		});
 	});
 
-	/*.change(function(){
-		console.log("aqui");
-	}).change();
-	$('select').on('change',function(e){
-		console.log("ww");
-	});*/
-	
-	var selectCambiar = function(){
-		console.log("entra");
-		$('#restriccion_redSelect').change(function(){console.log("hola");}).change();
-	};	
+	cambioRestriccionRed = function(e,id_restrinccion_red){
+		estado = e.value;
+		var dat = {
+			"id_restrinccion_red" 	: id_restrinccion_red,
+			"estado" 				: estado,
+			"funcion" 				: "update_restriccion_red"
+		}
+		var jsonC = JSON.stringify(dat);
+		$.ajax({
+			url : "php/datosAdmin.php",
+			type : "POST",
+			data : 'json=' + jsonC,
+			dataType: "json",
+			success : function(res){
+			},
+			error : function(res){
+				console.log(res);
+			}
+		});
+	};
 	
 
 
@@ -176,22 +193,34 @@ $(function(){
 								value['descripcion'] +
 							'</td>'; 
 					template += '<td>'+
-									'<select id="solicitud_softwareSelect" title="'+value['id_solicitud_software']+'">';
+									'<select id="restriccion_redSelect" onChange="cambioSolicitudSoftware(this,'+value['id_restrinccion_red']+')" title="'+value['id_restrinccion_red']+'">';
 							if(value['id_estado'] == 1){
 								template +='<option selected="" value="1">' + "Terminada" + '</option>'+ 
 										'<option value="2">' + "Pendiente" + '</option>'+ 
-										'<option value="3">' + "Cancelada" + '</option>';
+										'<option value="3">' + "Es espera" + '</option>'+ 
+										'<option value="4">' + "Cancelada" + '</option>';
 							}
 							if(value['id_estado'] == 2){
 								template +='<option value="1">' + "Terminada" + '</option>'+ 
 										'<option selected="" value="2">' + "Pendiente" + '</option>'+ 
-										'<option value="3">' + "Cancelada" + '</option>';
+										'<option value="3">' + "En espera" + '</option>'+ 
+										'<option value="4">' + "Cancelada" + '</option>';
 							}
 							if(value['id_estado'] == 3){
 								template +='<option value="1">' + "Terminada" + '</option>'+ 
 										'<option value="2">' + "Pendiente" + '</option>'+ 
-										'<option selected="" value="3">' + "Cancelada" + '</option>';
+										'<option selected="" value="3">' + "En espera" + '</option>'+ 
+										'<option value="4">' + "Cancelada" + '</option>';
 							}
+							if(value['id_estado'] == 4){
+								template +='<option value="1">' + "Terminada" + '</option>'+ 
+										'<option value="2">' + "Pendiente" + '</option>'+ 
+										'<option value="3">' + "En espera" + '</option>'+ 
+										'<option value="4" selected="">' + "Cancelada" + '</option>';
+							}
+					template +=									
+									'</select>'+
+								'</td>'; 
 					template +=									
 									'</select>'+
 								'</td>'; 
@@ -231,6 +260,27 @@ $(function(){
 			}
 		});
 	};
+	cambioSolicitudSoftware = function(e,id_solicitud_software){
+		estado = e.value;
+		var dat = {
+			"id_solicitud_software"	: id_solicitud_software,
+			"estado" 				: estado,
+			"funcion" 				: "update_solicitud_software"
+		}
+		var jsonC = JSON.stringify(dat);
+		$.ajax({
+			url : "php/datosAdmin.php",
+			type : "POST",
+			data : 'json=' + jsonC,
+			dataType: "json",
+			success : function(res){
+			},
+			error : function(res){
+				console.log(res);
+			}
+		});
+	};
+
 
 	/**
 	* Instalacion de software
