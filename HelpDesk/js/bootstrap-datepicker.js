@@ -1780,6 +1780,16 @@
 			today: "Today",
 			clear: "Clear",
 			titleFormat: "MM yyyy"
+		},
+		es: {
+			days: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+			daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+			daysMin: ["D", "L", "M", "M", "J", "V", "S"],
+			months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+			monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+			today: "Hoy",
+			clear: "Limpiar",
+			titleFormat: "MM yyyy"
 		}
 	};
 

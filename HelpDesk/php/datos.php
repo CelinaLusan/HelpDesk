@@ -94,6 +94,29 @@
 		echo json_encode($resultado);
 	}
 
+	#solicitudes equipo
+	if($jsondata->funcion == "solicitudEquipo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$rawdata = array();
+		$i=0;
+		$query = "SELECT * FROM solicitud_equipo WHERE id_usuario = '".$id_usuario."';";
+		$resultado = $mysqli->query($query);
+		while($row = mysqli_fetch_array($resultado))
+	    {
+	        $rawdata[$i] = $row;
+	        $i++;
+	    }
+		echo json_encode($rawdata);
+	}
+	if($jsondata->funcion == "eliminar_solicitud_equipo"){
+		$id_solicitud_equipo = $jsondata->id_solicitud_equipo;
+		$rawdata = array();
+		$i=0;
+		$query = "DELETE FROM solicitud_equipo WHERE id_solicitud_equipo = '".$id_solicitud_equipo."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+
 	#plataformasVirtuaales
 	if($jsondata->funcion == "plataformasVirtuales"){
 		$id_usuario = $_SESSION['id_usuario'];
@@ -117,6 +140,53 @@
 		echo json_encode($resultado);
 	}
 
+	#cuenta
+	if($jsondata->funcion == "cuenta"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$rawdata = array();
+		$i=0;
+		$query = "SELECT * FROM cuenta WHERE id_usuario = '".$id_usuario."';";
+		$resultado = $mysqli->query($query);
+		while($row = mysqli_fetch_array($resultado))
+	    {
+	        $rawdata[$i] = $row;
+	        $i++;
+	    }
+		echo json_encode($rawdata);
+	}
+	if($jsondata->funcion == "eliminar_cuenta"){
+		$id_cuenta = $jsondata->id_cuenta;
+		$rawdata = array();
+		$i=0;
+		$query = "DELETE FROM cuenta WHERE id_cuenta = '".$id_cuenta."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+
+	#restablecer
+	if($jsondata->funcion == "restablecer"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$rawdata = array();
+		$i=0;
+		$query = "SELECT * FROM restablecer WHERE id_usuario = '".$id_usuario."';";
+		$resultado = $mysqli->query($query);
+		while($row = mysqli_fetch_array($resultado))
+	    {
+	        $rawdata[$i] = $row;
+	        $i++;
+	    }
+		echo json_encode($rawdata);
+	}
+	if($jsondata->funcion == "eliminar_password"){
+		$id_restablecer = $jsondata->id_restablecer;
+		$rawdata = array();
+		$i=0;
+		$query = "DELETE FROM restablecer WHERE id_restablecer = '".$id_restablecer."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+
+
 	
 
 
@@ -133,5 +203,51 @@
 	    }
 		echo json_encode($rawdata);
 	}
+
+	if($jsondata->funcion == "eliminarCuentaTodo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$query = "DELETE FROM cuenta WHERE id_usuario = '".$id_usuario."'";
+		$query = "DELETE FROM restablecer WHERE id_usuario = '".$id_usuario."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	if($jsondata->funcion == "eliminarPlataformasVirtualesTodo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$query = "DELETE FROM plataformas_virtuales WHERE id_usuario = '".$id_usuario."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	if($jsondata->funcion == "eliminarSolicitudEquipoTodo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$query = "DELETE FROM solicitud_equipo WHERE id_usuario = '".$id_usuario."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	if($jsondata->funcion == "eliminarDaniosEquipoTodo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$query = "DELETE FROM danios_equipo WHERE id_usuario = '".$id_usuario."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	if($jsondata->funcion == "eliminarSolicitudSoftwareTodo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$query = "DELETE FROM solicitud_software WHERE id_usuario = '".$id_usuario."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	if($jsondata->funcion == "eliminarInstalacionSoftwareTodo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$query = "DELETE FROM instalacion_software WHERE id_usuario = '".$id_usuario."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+	if($jsondata->funcion == "eliminarRestriccionRedTodo"){
+		$id_usuario = $_SESSION['id_usuario'];
+		$query = "DELETE FROM restrinccion_red WHERE id_usuario = '".$id_usuario."'";
+		$resultado = $mysqli->query($query);
+		echo json_encode($resultado);
+	}
+
+
 
 ?>

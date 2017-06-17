@@ -4,14 +4,14 @@ $(function(){
 			"funcion" : "getchats"
 		}
 		var jsonC = JSON.stringify(dat);
-		console.log(jsonC);
+		//console.log(jsonC);
 		$.ajax({
 			url : "php/chat.php",
 			type : "POST",
 			data : 'json=' + jsonC,
 			dataType: "json",
 			success : function(res){
-				console.log(res);
+				//console.log(res);
 				var template = "";
 				$("#cuerpochat").html("");
 				$.each(res, function(key,value){

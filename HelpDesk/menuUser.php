@@ -45,6 +45,7 @@
         <script src="js/script.js"></script>
         <script src="js/bootstrap-select.js"></script>
         <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/bootstrap-datepicker.es.js"></script>
         <script src="js/bootstrap-timepicker.js"></script>
         
         <link rel="stylesheet/less" type="text/css" href="css/timepicker.less" />
@@ -134,14 +135,14 @@
                         </div>
                         
                         <div class="menu-item green">
-                            <a href="#plataformas-modal" data-toggle="modal">
+                            <a href="#plataformas-modal" data-toggle="modal" id="plataformas-modalClick">
                                 <i class="fa fa-globe"></i>
                                 <p>Plataformas Virtuales</p>
                             </a>
                         </div>
                         
                         <div class="menu-item light-red">
-                            <a href="#solicitudEquipo-modal" data-toggle="modal">
+                            <a href="#solicitudEquipo-modal" data-toggle="modal" id="solicitudEquipo-modalClick">
                                 <i class="fa fa-desktop"></i>
                                 <p>Solicitud de Equipo</p>
                             </a>
@@ -174,7 +175,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="menu-item color responsive">
-                                    <a href="#reporteDanios-modal" data-toggle="modal">
+                                    <a href="#reporteDanios-modal" data-toggle="modal" id="reporteDanios-modalClick">
                                         <i class="fa fa-bug"></i>
                                         <p>Reportes de Daños</p>
                                     </a>
@@ -339,35 +340,42 @@
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <form>
+                                            <form method="POST" action="php/agregarCuentaUsuario.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
                                                 <div class="col-md-4 col-md-offset-2">
                                                     <div class="form-group">
-                                                        <select class="form-control">
-                                                            <option selected disabled>Tipo de cargo</option>
-                                                            <option>Alumno</option>
-                                                            <option>Profesor</option>
-                                                            <option>Asistente</option>
+					                                    <label>Cuenta: </label>
+					                                    <select class="form-control" name="cuenta">
+					                                        <option>Aula Virtual</option>
+					                                        <option>Kabl</option>
+					                                    </select>
+					                                </div>
+                                                    <div class="form-group">
+                                                        <select class="form-control" name="tipo" required>
+                                                            <option selected disabled value="">Tipo de cargo</option>
+                                                            <option value="alumno">Alumno</option>
+                                                            <option value="profesor">Profesor</option>
+                                                            <option value="asistente">Asistente</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="cuentas_nombre" class="sr-only">Nombre</label>
-                                                        <input type="text" id="cuentas_nombre" class="form-control" placeholder="Nombre Completo" required autofocus />
+                                                        <input type="text" id="cuentas_nombre" class="form-control" placeholder="Nombre Completo" required autofocus name="nombre" />
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="cuentas_nomusuario" class="sr-only">Nombre de Usuario</label>
-                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Nombre de Usuario" required/>
+                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Nombre de Usuario" required name="usuario" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                          <label for="nom" class="sr-only">Razón</label>
-                                                        <textarea class="form-control" id="cuentas_razon" placeholder="Razón por la cual desea tener una cuenta"></textarea>
+                                                        <textarea class="form-control" id="cuentas_razon" placeholder="Razón por la cual desea tener una cuenta" name="razon"></textarea>
                                                     </div>
                                                     <div class="form-group">
                                                         <p class="text-justify"><b>Nota: </b>La contraseña de la nueva cuenta será igual a el nombre de usuario, usted podrá cambiarla posteriormente.</p>
                                                     </div>
                                                     <div class="form-group">
-                                                        <button class="btn btn-success btn-lg">Enviar</button> 
+                                                        <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
                                                     </div>
                                                 </div>
                                             </form>              
@@ -382,11 +390,11 @@
                                     </div>
                                     <div id="collapseTwo" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <form>
+                                            <form method="POST" action="php/agregarRestablecerPassword.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
                                                 <div class="col-md-4 col-md-offset-2">
                                                     <div class="form-group">
                                                         <label for="cuentas_nomusuario" class="sr-only">Nombre de Usuario</label>
-                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Nombre de Usuario" required/>
+                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Nombre de Usuario" name="usuario" required/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -394,7 +402,7 @@
                                                         <p class="text-justify"><b>Nota: </b>La contraseña de su cuenta será igual a el nombre de usuario, usted podrá cambiarla posteriormente.</p>
                                                     </div>
                                                     <div class="form-group">
-                                                        <button class="btn btn-success btn-lg">Enviar</button> 
+                                                        <input type="submit" class="btn btn-success btn-lg" value="Enviar">
                                                     </div>
                                                 </div>
                                             </form>              
@@ -456,11 +464,15 @@
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label >Maquina</label>
-                                    <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" />
+                                    <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" id="maquinaPV" />
+                                    <span class="errorIP" style="color: red;display: none;">
+                                        Error en el formato de la IP.
+                                    </span>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label >Hora de la falla</label>
-                                    <input type="text" class="form-control" placeholder="Hora" required autofocus name="hora" />
+                                    <label>Hora de la falla</label>
+                                    <label for="HRR"><i class="fa fa-clock-o"></i></label>
+                                    <input class="timepickerS form-control" type="text" required name="hora" id="HRR" />
                                 </div>
                                 <div class="form-group col-md-8">
                                     <label >Descripcion</label>
@@ -468,7 +480,7 @@
                                     </textarea>
                                 </div>
                                     
-                                <div class="form-group col-md-offset-5">
+                                <div class="form-group col-md-offset-5" id="btnPV">
                                         <button class="btn btn-success btn-lg">Enviar</button> 
                                 </div>
                             </div>
@@ -497,26 +509,32 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-4">
-                            <label>Nombre del equipo</label>
-                            <input type="text" class="form-control" placeholder="Nombre del equipo" required autofocus />
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label >Periodo de uso</label>
-                            <input type="text" class="form-control" placeholder="Tiempo de uso" required autofocus />
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label >Lugar</label>
-                            <input type="text" class="form-control" placeholder="Lugar donde se le dara uso" required autofocus />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label >Descripcion</label>
-                            <textarea class="form-control" placeholder="Razon por la cual hace la solicitud">
-                            </textarea>
-                        </div>
-                        <div class="form-group col-md-6 col-md-offset-5">
-                            <button class="btn btn-success btn-lg">Enviar</button> 
-                        </div>
+                        <form method="POST" action="php/agregarSolicitudEquipo.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                            <div class="form-group col-md-4">
+                                <label>Nombre del equipo</label>
+                                <input type="text" class="form-control" placeholder="Nombre del equipo" required autofocus name="nombreequipo" />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label >Fecha de inicio</label>
+                                <input type="text" class="datepicker1 form-control" placeholder="Fecha de inicio" name="fechainicio" id="fechainicio" required autofocus />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label >Fecha de fin</label>
+                                <input type="text" class="datepicker2 form-control" placeholder="Fecha de fin" name="fechafin" id="fechafin" required autofocus />
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label >Lugar</label>
+                                <input type="text" class="form-control" placeholder="Lugar donde se le dara uso" required autofocus name="lugar" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label >Descripcion</label>
+                                <textarea class="form-control" placeholder="Razon por la cual hace la solicitud" name="descripcion">
+                                </textarea>
+                            </div>
+                            <div class="form-group col-md-6 col-md-offset-5">
+                                <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -561,19 +579,24 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label >Maquina</label>
-                                <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" />
+                                <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" id="maquinaRD" />
+                                <span class="errorIP" style="color: red;display: none;">
+                                    Error en el formato de la IP.
+                                </span>
                             </div>
                             <div class="form-group col-md-4">
-                                <label >Hora de la falla</label>
-                                <input type="text" class="form-control" placeholder="Hora" required autofocus name="hora" />
+                                <label>Hora de la falla</label>
+                                <label for="HRR"><i class="fa fa-clock-o"></i></label>
+                                <input class="timepickerS form-control" type="text" required name="hora" id="HRR" />
                             </div>
+                            
                             <div class="form-group col-md-6">
                                 <label >Descripcion</label>
                                 <textarea class="form-control" placeholder="Razon por la cual hace el reporte" name="descripcion">
                                 </textarea>
                             </div>
-                            <div class="form-group col-md-6 col-md-offset-5">
-                                <button class="btn btn-success btn-lg">Enviar</button> 
+                            <div class="form-group col-md-6 col-md-offset-5" id="btnRD">
+                                <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
                             </div>
                         </form>
                     </div>
@@ -640,6 +663,9 @@
                                                 <div class="form-group col-md-4">
                                                     <label >Maquina</label>
                                                     <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" id="maquinaSI" />
+                                                    <span class="errorIP" style="color: red;display: none;">
+                                                        Error en el formato de la IP.
+                                                    </span>
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label >Software a instalar</label>
@@ -650,8 +676,8 @@
                                                     <textarea class="form-control" placeholder="Razon por la cual necesita el sw" name="descripcion">
                                                     </textarea>
                                                 </div>
-                                                <div class="form-group col-md-6 col-md-offset-5">
-                                                    <input class="btn btn-success btn-lg" value="Enviar" id="enviarSI"> 
+                                                <div class="form-group col-md-6 col-md-offset-5" id="btnSI">
+                                                    <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
                                                 </div>
                                             </form>
                                         </div>
@@ -734,9 +760,9 @@
                           </td>
                           <td>
                             
-                            <a href="#infocuentauser-modal" class="btn btn-primary btn-xs" data-toggle="modal"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#cuenta-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="cuentaVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="EliminarCuenta"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                         <tr>
@@ -748,7 +774,7 @@
                           <td>
                             <a href="#plataformasVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="plataformasVirtualesVerClic"><i class="fa fa-folder"></i> Ver </a>
                          
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarPlataformasVirtuales"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           <tr>
@@ -758,9 +784,9 @@
                             
                           </td>
                           <td>
-                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#solicitudEquipoVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudEquipoVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudEquipo"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           <tr>
@@ -772,7 +798,7 @@
                           <td>
                             <a href="#reporteDaniosVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="reporteDaniosVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarDaniosEquipo"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           <tr>
@@ -784,7 +810,7 @@
                           <td>
                             <a href="#instalacionSoftwareVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="instalacionSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
 
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarInstalacionSoftware"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                             <tr>
@@ -796,7 +822,7 @@
                           <td>
                             <a href="#solicitudSoftwareVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudSoftware"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                             <tr>
@@ -807,7 +833,7 @@
                           <td>
                             <a href="#restriccionesred-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="restriccionesredClic"><i class="fa fa-folder"></i> Ver </a>
                            
-                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarRestriccionRed"><i class="fa fa-trash-o"></i> Eliminar todo</a>
                           </td>
                         </tr>
                           
@@ -831,78 +857,80 @@
         </div>
         <!-- End ver reportes Section -->
         
-        <!-- start infoCuentaUser Section -->
-        <div class="section-modal modal fade" id="infocuentauser-modal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-content">
+        <!-- start Cuenta Section -->
+        <div class="section-modal modal fade" id="cuenta-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        	<div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
                         <div class="rl">
                         </div>
                     </div>
                 </div>
-                
                 <div class="container">
-                    <!--inicio-->
-                                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Descripción</th>
-                          <th>Estatus</th>
-                          <th>Acciones</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>
-                            <a>pedo 1</a>
-                            
-                          </td>
-                          <td>
-                            <a href="#cuentauser-modal" class="btn btn-info btn-xs" data-toggle="modal"> pendiente</a>
-                          </td>
-                            <td><a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a></td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>
-                            <a>descripcion de pedo 3</a>
-                          </td>
-                           <td>
-                            <a href="#cuentauser-modal" class="btn btn-info btn-xs" data-toggle="modal"> pendiente</a>
-                          </td>
-                            <td><a href="#" class="btn btn-danger btn-xs">Eliminar</a></td>
-                        </tr>
-                          <tr>
-                          <td>3</td>
-                          <td>
-                            <a>descripcion pedo 4</a>
-                            
-                          </td>
-                           <td>
-                            <a href="#cuentauser-modal" class="btn btn-success btn-xs" data-toggle="modal"> Terminada</a>
-                          </td>
-                            <td><a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a></td>
-                        </tr>
-                        
-                          <tr>
-                          <td>5</td>
-                          <td>
-                            <a>descripcion pedo n</a>
-                           
-                          </td>
-                           <td>
-                            <a href="#cuentauser-modal" class="btn btn-primary btn-xs" data-toggle="modal"> cancelada</a>
-                          </td>
-                            <td><a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Eliminar</a></td>
-                        </tr>
-                      
-                          
-                      </tbody>
-                    </table>
-                    <!-- end project list -->
-                   
+                	<div class="row">
+                        <div class="section-title text-center">
+                            <h3></h3>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseCuenta">Cuenta de Usuario</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseCuenta" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <table class="table">
+						                      <thead>
+						                        <tr>
+						                          <th>#</th>
+						                          <th>Nombre de equipo</th>
+						                          <th>Fecha de inicio</th>
+						                          <th>Fecha de fin</th>
+						                          <th>Descripcion</th>
+						                          <th>Lugar</th>
+						                          <th>Estado</th>
+						                          <th>Acciones</th>
+						                        </tr>
+						                      </thead>
+						                      <tbody id="tbodyCuenta">                          
+						                      </tbody>
+						                    </table>              
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapsePassword">Restablecer Cuenta de Usuario</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapsePassword" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <table class="table">
+						                      <thead>
+						                        <tr>
+						                          <th>#</th>
+						                          <th>Usuario</th>
+						                          <th>Estado</th>
+						                          <th>Acciones</th>
+						                        </tr>
+						                      </thead>
+						                      <tbody id="tbodyPassword">                          
+						                      </tbody>
+						                    </table>              
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -945,7 +973,7 @@
 
 
         <!-- start solicitudEquipo-modal Section -->
-        <div class="section-modal modal fade" id="solicitudEquipoVer-modal" tabindex="-1" role="dialog" aria-hidden="true">
+   <!--     <div class="section-modal modal fade" id="solicitudEquipoVer-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
                     <div class="lr">
@@ -975,7 +1003,44 @@
                    
                 </div>
             </div>
+       <!-- </div>
+-->
+
+        <!-- start solicitudEquipo-modal Section -->
+        <div class="section-modal modal fade" id="solicitudEquipoVer-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container">
+                    <h3 class="tituloTabla">Solicitud de equipo</h3>
+                    <!--inicio-->
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Nombre de equipo</th>
+                          <th>Fecha de inicio</th>
+                          <th>Fecha de fin</th>
+                          <th>Descripcion</th>
+                          <th>Lugar</th>
+                          <th>Estado</th>
+                          <th>Acciones</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbodySolicitudEquipo">                          
+                      </tbody>
+                    </table>
+                    <!-- end project list -->
+                   
+                </div>
+            </div>
         </div>
+        
 
     
 
@@ -1278,18 +1343,101 @@
                           $('#qnimate').removeClass('popup-box-on');
                             });
             });
+            /*$.datepicker.regional['es'] = {
+				closeText: 'Cerrar',
+				prevText: '< Ant',
+				nextText: 'Sig >',
+				currentText: 'Hoy',
+				monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+				monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+				dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+				dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+				dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+				weekHeader: 'Sm',
+				dateFormat: 'dd/mm/yy',
+				firstDay: 1,
+				isRTL: false,
+				showMonthAfterYear: false,
+				yearSuffix: ''
+			};*/
+			//$.datepicker.setDefaults($.datepicker.regional['es']);
             $('#restricciones-modalClic').click(function(){
             	$('.timepickerS').timepicker();
             });
-            $('#enviarSI').click(function(){
-                var a = $('#maquinaSI').val();
+            $('#reporteDanios-modalClick').click(function(){
+                $('.timepickerS').timepicker();
+            });
+            $('#plataformas-modalClick').click(function(){
+                $('.timepickerS').timepicker();
+            });
+            $('#solicitudEquipo-modalClick').click(function(){
+                $('.datepicker1').datepicker({
+                	language: 'es',
+                	format 	: 'dd/mm/yyyy'
+                });
+                $('.datepicker1').change(function(){
+                	$('.datepicker2').datepicker({
+	                	language:'es',
+	                	format 	: 'dd/mm/yyyy',
+	                	startDate:$('#fechainicio')[0].value
+	                });
+                });
+            });
+            $('#maquinaPV').focusout(function(){
+                var a = $('#maquinaPV').val();
                 var patronIp=new RegExp("^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$");
                 if(a.search(patronIp)==0){
                     valores=a.split(".");
                     if(valores[0]<=255 && valores[1]<=255 && valores[2]<=255 && valores[3]<=255){
-                        $('#SI').submit();
-                        return;
+                        $('#btnPV').html('<input type="submit" class="btn btn-success btn-lg" value="Enviar">');
+                        $('.errorIP')[0].style.display = "none";
                     }
+                    else{
+                        $('.btnPV').html('<input type="button" class="btn btn-success btn-lg" value="Enviar">');
+                        $('.errorIP')[0].style.display = "block";
+                    }
+                }
+                else{
+                    $('#btnPV').html('<input type="button" class="btn btn-success btn-lg" value="Enviar">');
+                    $('.errorIP')[0].style.display = "block";
+                }
+            });
+            $('#maquinaRD').focusout(function(){
+                var a = $('#maquinaRD').val();
+                var patronIp=new RegExp("^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$");
+                if(a.search(patronIp)==0){
+                    valores=a.split(".");
+                    if(valores[0]<=255 && valores[1]<=255 && valores[2]<=255 && valores[3]<=255){
+                        $('#btnRD').html('<input type="submit" class="btn btn-success btn-lg" value="Enviar">');
+                        $('.errorIP')[1].style.display = "none";
+                    }
+                    else{
+                        $('.btnRD').html('<input type="button" class="btn btn-success btn-lg" value="Enviar">');
+                        $('.errorIP')[1].style.display = "block";
+                    }
+                }
+                else{
+                    $('#btnRD').html('<input type="button" class="btn btn-success btn-lg" value="Enviar">');
+                    $('.errorIP')[1].style.display = "block";
+                }
+            });
+            $('#maquinaSI').focusout(function(){
+                var a = $('#maquinaSI').val();
+                var patronIp=new RegExp("^([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3}).([0-9]{1,3})$");
+                if(a.search(patronIp)==0){
+                    valores=a.split(".");
+                    if(valores[2]<=255 && valores[1]<=255 && valores[2]<=255 && valores[3]<=255){
+                        $('#btnSI').html('<input type="submit" class="btn btn-success btn-lg" value="Enviar">');
+                        $('.errorIP')[2].style.display = "none";
+                    }
+                    else{
+                        $('#btnSI').html('<input type="button" class="btn btn-success btn-lg" value="Enviar">');
+                        $('.errorIP')[2].style.display = "block";
+                    }
+                }
+                else{
+                    $('#btnSI').html('<input type="button" class="btn btn-success btn-lg" value="Enviar">');
+                    $('.errorIP')[2].style.display = "block";
                 }
             });
         </script>              
