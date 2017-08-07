@@ -93,7 +93,7 @@
                 </li>
 
                 <li role="presentation" class="dropdown">
-                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="  dropdown" aria-expanded="false">
                     <i class="fa fa-eye"></i>
                   </a>
                    <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -111,7 +111,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="page-title">
+            <!--<div class="page-title">
               <div class="title_left">
                 
               </div>
@@ -119,7 +119,7 @@
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Buscar...">
+                    <input type="text" class="form-control" placeholder="Buscar..." id="buscarInput" onKeyUp="buscarTodo(this)">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Buscar</button>
                     </span>
@@ -127,7 +127,25 @@
                 </div>
               </div>
             </div>
-            
+            <div class="clearfix"></div>
+            <div class="row">
+              <div class="table-responsive">
+                <table class="table-striped table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Usuario</th>
+                      <th>Pertenece a</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                      </tr>
+                  </thead>
+                  <tbody id="tbodyBuscardor">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            -->
             <div class="clearfix"></div>
 
             <div class="row">
@@ -245,6 +263,50 @@
                     <!-- end project list -->
 
                   </div>
+
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2>Gestion de usuarios</h2>
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+
+                      <p>Administre las cuentas de usuario del HelpDesk</p>
+
+                      <!-- start project list -->
+                      <table class="table table-striped projects">
+                        <thead>
+                          <tr>
+                            <th>Opción</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <a href="#adduser-modal" class="btn" data-toggle="modal" id="adduserbtn">Agregar Usuario</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <a href="#moduser-modal" class="btn" data-toggle="modal" id="moduserbtn">Modificar Usuario</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <a href="#deluser-modal" class="btn" data-toggle="modal" id="deluserbtn">Eliminar Usuario</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- end project list -->
+
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -252,6 +314,126 @@
         </div>
         <!-- /page content -->
 
+<div class="modal fade" id="adduser-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Agregar Usuario para HelpDesk</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <form method="POST" action="php/agregarUsuario.php">
+                    <div class="form-group">
+                      <label for="nombreuser" class="sr-only">Nombre de Usuario</label>
+                      <input type="text" id="nombreuser" class="form-control" placeholder="Nombre de Usuario" required autofocus name="nombreu" />
+                    </div>
+                    <div class="form-group">
+                      <label for="contrasenia" class="sr-only">Contraseña</label>
+                      <input type="password" id="contrasenia" class="form-control" placeholder="Contraseña" required name="contraseniau" />
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                      <label for="nombre" class="sr-only">Nombre</label>
+                      <input type="text" id="nombre" class="form-control" placeholder="Nombre" required name="nombre" />
+                    </div>
+                    <div class="form-group">
+                      <label for="apellidop" class="sr-only">Apellido Paterno</label>
+                      <input type="text" id="apellidop" class="form-control" placeholder="Apellido Paterno" required name="apellidopat" />
+                    </div>
+                    <div class="form-group">
+                      <label for="apellidom" class="sr-only">Apellido Materno</label>
+                      <input type="text" id="apellidom" class="form-control" placeholder="Apellido Materno" required name="apellidomat" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-lg" value="Agregar"> 
+                    </div>
+                  </form>
+                </div>
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="moduser-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modificar Usuario para HelpDesk</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <form>
+                    <div class="form-group">
+                      <label for="busquser" class="sr-only">Buscar Usuario</label>
+                      <input type="text" id="busquser" class="form-control" placeholder="Nombre de Usuario" required autofocus name="nombreu" />
+                    </div>
+                    <div class="form-group">
+                        <input type="button" class="btn btn-success btn-lg" value="Buscar" id="buscaruserbtn"> 
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <div class="form">
+                    <div class="form-group">
+                      <label for="nombreuser" class="sr-only">Nombre de Usuario</label>
+                      <input type="text" id="nombreuseru" class="form-control" placeholder="Nombre de Usuario" required autofocus name="nombre_user" />
+                    </div>
+                    <div class="form-group">
+                      <div class="checkbox">
+                        <label><input type="checkbox" id="restapass" value="">Restablecer Contraseña</label>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                      <label for="nombre" class="sr-only">Nombre</label>
+                      <input type="text" id="nombreu" class="form-control" placeholder="Nombre" required name="nombre_uu" />
+                    </div>
+                    <div class="form-group">
+                      <label for="apellidopat" class="sr-only">Apellido Paterno</label>
+                      <input type="text" id="apellidopu" class="form-control" placeholder="Apellido Paterno" required name="apellidopat" />
+                    </div>
+                    <div class="form-group">
+                      <label for="apellidomat" class="sr-only">Apellido Materno</label>
+                      <input type="text" id="apellidomu" class="form-control" placeholder="Apellido Materno" required name="apellidomat" />
+                    </div>
+                    <div class="form-group">
+                        <input type="button" class="btn btn-success btn-lg" id="actualizaruserbtn" value="Actualizar"> 
+                    </div>
+                  </div>
+                </div>
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="deluser-modal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Eliminar Usuario para HelpDesk</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <form method="POST" action="php/eliminaruser.php">
+                    <div class="form-group">
+                      <label for="busquser" class="sr-only">Eliminar Usuario</label>
+                      <input type="text" id="busquser" class="form-control" placeholder="Nombre de Usuario" required autofocus name="nombreu" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-success btn-lg" value="Eliminar"> 
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.row -->
+        </div>
 
 <!-- Start cuentas de usuario -->
         <div class="modal fade" id="cuentasUsuario-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -398,7 +580,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Reporte de danos</h4>
+              <h4 class="modal-title">Reporte de daños</h4>
             </div>
                 
             <div class="modal-body">
@@ -539,7 +721,7 @@
 <div class="popup-box chat-popup" id="qnimate">
             <div id="id_usuario" style="display: none;"></div>
             <div class="popup-head">
-                <div class="popup-head-left pull-left"><img src="images/user.png" alt="iamgurdeeposahan">Administrador</div>
+                <div class="popup-head-left pull-left"><img src="images/team/team-1.jpg" alt="iamgurdeeposahan">Administrador</div>
                     <div class="popup-head-right pull-right">
                         <div class="btn-group">
                             <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">

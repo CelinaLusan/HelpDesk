@@ -52,7 +52,7 @@
         <script src="js/less.js" type="text/javascript"></script>
 
         <script src="js/chat.js" type="text/javascript"></script>
-        <script src="js/datos.js" type="text/javascript"></script>
+        <script src="js/datos-in.js" type="text/javascript"></script>
         
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -91,14 +91,14 @@
                     </div>
                     <div class="col-md-3">
                         <div class="row">
-                        <ul class="navbar-form">
+                            <ul class="navbar-form">
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle form-control" data-toggle="dropdown">
                                     <?php echo $_SESSION['usuario']; ?> <b class="caret"></b>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#cambiarPassword-modal" data-toggle="modal">Cambiar contraseña</a></li>
-                                    <li><a href="php/salir.php">Salir</a></li>
+                                    <li><a href="#cambiarPassword-modal" data-toggle="modal">Change password</a></li>
+                                    <li><a href="php/salir.php">Exit</a></li>
                                 </ul>
                             </li> 
 
@@ -117,32 +117,32 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Cambiar contraseña</h3>
+                            <h3>Change password</h3>
                         </div>
                     </div>
                     <div class="row">
                         <form method="POST" action="php/cambiarPassword.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
                             <div class="form-group col-md-4">
-                                <label >Contraseña actual</label>
-                                <input type="password" class="form-control" placeholder="Contraseña actual" required autofocus name="contraseñaActual" id="contraseñaActual" />
+                                <label >Current password</label>
+                                <input type="password" class="form-control" placeholder="Current password" required autofocus name="contraseñaActual" id="contraseñaActual" />
                                 <span class="errorContraseñaActual" style="color: red;display: none;">
-                                    Error en la contraseña.
+                                    Error int he password.
                                 </span>
                             </div>
                             <div class="form-group col-md-4">
-                                <label >Contraseña:</label>
-                                <input type="password" class="form-control" placeholder="Contraseña" required autofocus name="contraseña" id="contraseña" />
+                                <label >Password:</label>
+                                <input type="password" class="form-control" placeholder="Password" required autofocus name="contraseña" id="contraseña" />
                             </div>
                             <div class="form-group col-md-4">
-                                <span class="errorContraseña2" style="color: red;display: none;">
-                                    Las contraseñas no coinciden.
+                                 <span class="errorContraseña2" style="color: red;display: none;">
+                                    Passwords do not match.
                                 </span>
                                
-                                <label >Repetir Contraseña:</label>
-                                <input type="password" class="form-control" placeholder="Repetir Contraseña" required autofocus name="contraseña2" id="contraseña2" />
+                                <label >Repeat password:</label>
+                                <input type="password" class="form-control" placeholder="Repeat password" required autofocus name="contraseña2" id="contraseña2" />
                             </div>
-                            <div class="form-group col-md-6 col-md-offset-5" id="btnCP">
-                                <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
+                            <div class="form-group col-md-6 col-md-offset-5">
+                                <input type="submit" class="btn btn-success btn-lg" value="Submit"> 
                             </div>
                         </form>
                     </div>
@@ -184,8 +184,8 @@
                                     <div class="form-group">
                                         <select class="form-control selectpicker" onchange="cambioIdioma(this)">
                                             <option selected disabled>Seleccionar idioma</option>
-                                            <option data-thumbnail="images/mexico.png" selected>Español</option>
-                                            <option data-thumbnail="images/estados-unidos.png" >English</option>
+                                            <option data-thumbnail="images/mexico.png">Spanish</option>
+                                            <option data-thumbnail="images/estados-unidos.png" selected>English</option>
                                         </select>
                                     </div>
                                 </div>
@@ -197,9 +197,7 @@
         </section>
         <!-- End Logo Section -->
         
-
         
-
         <!-- Start Main Body Section -->
         <div class="mainbody-section text-center" id="todo">
             <div class="container">
@@ -210,21 +208,21 @@
                         <div class="menu-item blue">
                             <a href="#cuentauser-modal" data-toggle="modal">
                                 <i class="fa fa-user"></i>
-                                <p>Cuentas de Usuario</p>
+                                <p>User account</p>
                             </a>
                         </div>
                         
                         <div class="menu-item green">
                             <a href="#plataformas-modal" data-toggle="modal" id="plataformas-modalClick">
                                 <i class="fa fa-globe"></i>
-                                <p>Plataformas Virtuales</p>
+                                <p>Virtual platforms</p>
                             </a>
                         </div>
                         
                         <div class="menu-item light-red">
                             <a href="#solicitudEquipo-modal" data-toggle="modal" id="solicitudEquipo-modalClick">
                                 <i class="fa fa-desktop"></i>
-                                <p>Solicitud de Equipo</p>
+                                <p>Equipment request</p>
                             </a>
                         </div>
                         
@@ -257,7 +255,7 @@
                                 <div class="menu-item color responsive">
                                     <a href="#reporteDanios-modal" data-toggle="modal" id="reporteDanios-modalClick">
                                         <i class="fa fa-bug"></i>
-                                        <p>Reportes de Daños</p>
+                                        <p>Damage report</p>
                                     </a>
                                 </div>
                             </div>
@@ -265,7 +263,7 @@
                                 <div class="menu-item green">
                                     <a href="#solicitudSoftware-modal" id="solicitudSoftware-modalClick" data-toggle="modal">
                                         <i class="fa fa-cogs"></i>
-                                        <p>Solicitud/ instalacion de software</p>
+                                        <p>Request / installation of software</p>
                                     </a>
                                 </div>
                             </div>
@@ -278,14 +276,14 @@
                         <div class="menu-item color">
                             <a href="#restricciones-modal" id="restricciones-modalClic" data-toggle="modal">
                                 <i class="fa fa-unlock"></i>
-                                <p>Restricciones de Red</p>
+                                <p>Network restrictions</p>
                             </a>
                         </div>
 
                         <div class="menu-item light-red">
                             <a href="#verReportes-modal" data-toggle="modal">
                                 <i class="fa fa-pencil-square-o"></i>
-                                <p>Ver mis reportes</p>
+                                <p>See my reports</p>
                             </a>
                         </div>
                         
@@ -304,7 +302,7 @@
         <!-- End Main Body Section -->
         <div class="popup-box chat-popup" id="qnimate">
             <div class="popup-head">
-                <div class="popup-head-left pull-left"><img src="images/team/team-1.jpg" alt="iamgurdeeposahan">Administrador</div>
+                <div class="popup-head-left pull-left"><img src="images/team/team-1.jpg" alt="iamgurdeeposahan">Administrator</div>
                     <div class="popup-head-right pull-right">
                         <div class="btn-group">
                             <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
@@ -405,7 +403,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Cuenta de usuario para plataforfas virtuales de NU</h3>
+                            <h3>User account for NU virtual platforms</h3>
                         </div>
                     </div>
                     <br>
@@ -415,15 +413,15 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-user-plus"></i> Solicitar Cuenta de Usuario</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-user-plus"></i> Request user account</a>
                                         </h4>
                                     </div>
                                     <div id="collapseOne" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <form method="POST" action="php/agregarCuentaUsuario.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                                            <form method="POST" action="php/agregarCuentaUsuario.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true">
                                                 <div class="col-md-4 col-md-offset-2">
                                                     <div class="form-group">
-					                                    <label>Cuenta: </label>
+					                                    <label>Account: </label>
 					                                    <select class="form-control" name="cuenta">
 					                                        <option>Aula Virtual</option>
 					                                        <option>Kabl</option>
@@ -431,31 +429,31 @@
 					                                </div>
                                                     <div class="form-group">
                                                         <select class="form-control" name="tipo" required>
-                                                            <option selected disabled value="">Tipo de cargo</option>
-                                                            <option value="alumno">Alumno</option>
-                                                            <option value="profesor">Profesor</option>
-                                                            <option value="asistente">Asistente</option>
+                                                            <option selected disabled value="">Type of charge</option>
+                                                            <option value="alumno">Student</option>
+                                                            <option value="profesor">Teacher</option>
+                                                            <option value="asistente">Assistant</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="cuentas_nombre" class="sr-only">Nombre</label>
-                                                        <input type="text" id="cuentas_nombre" class="form-control" placeholder="Nombre Completo" required autofocus name="nombre" />
+                                                        <label for="cuentas_nombre" class="sr-only">Name</label>
+                                                        <input type="text" id="cuentas_nombre" class="form-control" placeholder="Full name" required autofocus name="nombre" />
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="cuentas_nomusuario" class="sr-only">Nombre de Usuario</label>
-                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Nombre de Usuario" required name="usuario" />
+                                                        <label for="cuentas_nomusuario" class="sr-only">Username</label>
+                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Username" required name="usuario" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                         <label for="nom" class="sr-only">Razón</label>
-                                                        <textarea class="form-control" id="cuentas_razon" placeholder="Razón por la cual desea tener una cuenta" name="razon"></textarea>
+                                                         <label for="nom" class="sr-only">Reason</label>
+                                                        <textarea class="form-control" id="cuentas_razon" placeholder="Reason why you want to have an account" name="razon"></textarea>
                                                     </div>
                                                     <div class="form-group">
-                                                        <p class="text-justify"><b>Nota: </b>La contraseña de la nueva cuenta será igual a el nombre de usuario, usted podrá cambiarla posteriormente.</p>
+                                                        <p class="text-justify"><b>Note: </b>The password of the new account will be the same as the username, and you can change it later.</p>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
+                                                        <input type="submit" class="btn btn-success btn-lg" value="Submit"> 
                                                     </div>
                                                 </div>
                                             </form>              
@@ -465,24 +463,24 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-pencil"></i> Restablecer Cuenta de Usuario</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-pencil"></i> Reset user account </a>
                                         </h4>
                                     </div>
                                     <div id="collapseTwo" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <form method="POST" action="php/agregarRestablecerPassword.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                                            <form method="POST" action="php/agregarRestablecerPassword.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true">
                                                 <div class="col-md-4 col-md-offset-2">
                                                     <div class="form-group">
-                                                        <label for="cuentas_nomusuario" class="sr-only">Nombre de Usuario</label>
-                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Nombre de Usuario" name="usuario" required/>
+                                                        <label for="cuentas_nomusuario" class="sr-only">Username</label>
+                                                        <input type="text" id="cuentas_nomusuario" class="form-control" placeholder="Username" name="usuario" required/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <p class="text-justify"><b>Nota: </b>La contraseña de su cuenta será igual a el nombre de usuario, usted podrá cambiarla posteriormente.</p>
+                                                        <p class="text-justify"><b>Note: </b>The password of the new account will be the same as the username, and you can change it later.</p>
                                                     </div>
                                                     <div class="form-group">
-                                                        <input type="submit" class="btn btn-success btn-lg" value="Enviar">
+                                                        <input type="submit" class="btn btn-success btn-lg" value="Submit">
                                                     </div>
                                                 </div>
                                             </form>              
@@ -513,22 +511,22 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Reporte de fallas en plataformas virtuales</h3>
+                            <h3>Failure reporting on virtual platforms</h3>
                             <!--<p>Duis aute irure dolor in reprehenderit in voluptate</p>-->
                         </div>
                     </div>
                     <div class="row">
-                        <form method="POST" action="php/agregarFallaPlataforma.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                        <form method="POST" action="php/agregarFallaPlataforma.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true">
                             <div class="col-md-8 col-md-offset-2">
                                 <div class="form-group col-md-4">
-                                    <label>Deteccion de falla en: </label>
+                                    <label>Fault detection in: </label>
                                     <select class="form-control" name="falla">
                                         <option>Aula Virtual</option>
                                         <option>Kabl</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label>Aula</label>
+                                    <label>Classroom</label>
                                     <select class="form-control" name="aula">
                                         <option>1</option>
                                         <option>2</option>
@@ -543,25 +541,24 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label >Maquina</label>
-                                    <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" id="maquinaPV" />
+                                    <label >Machine</label>
+                                    <input type="text" class="form-control" placeholder="Ip number" required autofocus name="maquina" id="maquinaPV" />
                                     <span class="errorIP" style="color: red;display: none;">
-                                        Error en el formato de la IP.
+                                        Error in the IP format.
                                     </span>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label>Hora de la falla</label>
+                                    <label>Time of failure</label>
                                     <label for="HRR"><i class="fa fa-clock-o"></i></label>
                                     <input class="timepickerS form-control" type="text" required name="hora" id="HRR" />
                                 </div>
                                 <div class="form-group col-md-8">
-                                    <label >Descripcion</label>
-                                    <textarea class="form-control" placeholder="Descripcion de la falla" name="descripcion">
-                                    </textarea>
+                                    <label >Description</label>
+                                    <textarea class="form-control" placeholder="Fault description" name="descripcion"></textarea>
                                 </div>
                                     
                                 <div class="form-group col-md-offset-5" id="btnPV">
-                                        <button class="btn btn-success btn-lg">Enviar</button> 
+                                        <button class="btn btn-success btn-lg">Submit</button> 
                                 </div>
                             </div>
                         </form>
@@ -585,34 +582,33 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Solicitud para equipos</h3>
+                            <h3>Equipment request</h3>
                         </div>
                     </div>
                     <div class="row">
-                        <form method="POST" action="php/agregarSolicitudEquipo.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                        <form method="POST" action="php/agregarSolicitudEquipo.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true">
                             <div class="form-group col-md-4">
-                                <label>Nombre del equipo</label>
-                                <input type="text" class="form-control" placeholder="Nombre del equipo" required autofocus name="nombreequipo" />
+                                <label>Name of the team:</label>
+                                <input type="text" class="form-control" placeholder="Name of the team:" required autofocus name="nombreequipo" />
                             </div>
                             <div class="form-group col-md-4">
-                                <label >Fecha de inicio</label>
-                                <input type="text" class="datepicker1 form-control" placeholder="Fecha de inicio" name="fechainicio" id="fechainicio" required autofocus />
+                                <label >Start date</label>
+                                <input type="text" class="datepicker1 form-control" placeholder="Start date" name="fechainicio" id="fechainicio" required autofocus />
                             </div>
                             <div class="form-group col-md-4">
-                                <label >Fecha de fin</label>
-                                <input type="text" class="datepicker2 form-control" placeholder="Fecha de fin" name="fechafin" id="fechafin" required autofocus />
+                                <label >Ending date</label>
+                                <input type="text" class="datepicker2 form-control" placeholder="Ending date" name="fechafin" id="fechafin" required autofocus />
                             </div>
                             <div class="form-group col-md-4">
-                                <label >Lugar</label>
-                                <input type="text" class="form-control" placeholder="Lugar donde se le dara uso" required autofocus name="lugar" />
+                                <label >Place</label>
+                                <input type="text" class="form-control" placeholder="Place" required autofocus name="lugar" />
                             </div>
                             <div class="form-group col-md-6">
-                                <label >Descripcion</label>
-                                <textarea class="form-control" placeholder="Razon por la cual hace la solicitud" name="descripcion">
-                                </textarea>
+                                <label >Description</label>
+                                <textarea class="form-control" placeholder="Reason for making the request" name="descripcion"></textarea>
                             </div>
                             <div class="form-group col-md-6 col-md-offset-5">
-                                <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
+                                <input type="submit" class="btn btn-success btn-lg" value="Submit"> 
                             </div>
                         </form>
                     </div>
@@ -637,13 +633,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Reporte de daños</h3>
+                            <h3>Damage equipment</h3>
                         </div>
                     </div>
                     <div class="row">
-                        <form method="POST" action="php/agregarReportesDanios.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                        <form method="POST" action="php/agregarReportesDanios.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true">
                             <div class="form-group col-md-4">
-                                <label>Aula</label>
+                                <label>Classroom</label>
                                 <select class="form-control" name="aula">
                                     <option>1</option>
                                     <option>2</option>
@@ -658,25 +654,24 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <label >Maquina</label>
-                                <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" id="maquinaRD" />
+                                <label >Machine</label>
+                                <input type="text" class="form-control" placeholder="Ip number" required autofocus name="maquina" id="maquinaRD" />
                                 <span class="errorIP" style="color: red;display: none;">
-                                    Error en el formato de la IP.
+                                    Error in the IP format.
                                 </span>
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Hora de la falla</label>
+                                <label>Time of failure</label>
                                 <label for="HRR"><i class="fa fa-clock-o"></i></label>
                                 <input class="timepickerS form-control" type="text" required name="hora" id="HRR" />
                             </div>
                             
                             <div class="form-group col-md-6">
-                                <label >Descripcion</label>
-                                <textarea class="form-control" placeholder="Razon por la cual hace el reporte" name="descripcion">
-                                </textarea>
+                                <label >Description</label>
+                                <textarea class="form-control" placeholder="Reazon for making the report" name="descripcion"></textarea>
                             </div>
                             <div class="form-group col-md-6 col-md-offset-5" id="btnRD">
-                                <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
+                                <input type="submit" class="btn btn-success btn-lg" value="Submit"> 
                             </div>
                         </form>
                     </div>
@@ -705,7 +700,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Instalación/ Solicitud de software</h3>
+                            <h3>Installation/ request of software</h3>
                         </div>
                     </div>
                     
@@ -718,15 +713,15 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne1">
-                                                <i class="fa fa-user-plus"></i> Instalacion de Software
+                                                <i class="fa fa-user-plus"></i> Installation of Software
                                             </a>
                                         </h4>
                                     </div>
                                     <div id="collapseOne1" class="panel-collapse collapse in">
                                         <div class="panel-body">
-                                            <form method="POST" action="php/agregarInstalacionSoftware.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>" id="SI">
+                                            <form method="POST" action="php/agregarInstalacionSoftware.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true" id="SI">
                                                 <div class="form-group col-md-4">
-                                                    <label>Aula</label>
+                                                    <label>Classroom</label>
                                                     <select class="form-control" name="aula">
                                                         <option>1</option>
                                                         <option>2</option>
@@ -741,23 +736,22 @@
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-4">
-                                                    <label >Maquina</label>
-                                                    <input type="text" class="form-control" placeholder="Numero de ip" required autofocus name="maquina" id="maquinaSI" />
+                                                    <label >Machine</label>
+                                                    <input type="text" class="form-control" placeholder="Ip number" required autofocus name="maquina" id="maquinaSI" />
                                                     <span class="errorIP" style="color: red;display: none;">
-                                                        Error en el formato de la IP.
+                                                        Error in the IP format.
                                                     </span>
                                                 </div>
                                                 <div class="form-group col-md-4">
-                                                    <label >Software a instalar</label>
-                                                    <input type="text" class="form-control" placeholder="Que programa necesita" required autofocus name="software" />
+                                                    <label >Software to install</label>
+                                                    <input type="text" class="form-control" placeholder="What program you need?" required autofocus name="software" />
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label >Descripcion</label>
-                                                    <textarea class="form-control" placeholder="Razon por la cual necesita el sw" name="descripcion">
-                                                    </textarea>
+                                                    <label >Description</label>
+                                                    <textarea class="form-control" placeholder="Reason why you need the software" name="descripcion"></textarea>
                                                 </div>
                                                 <div class="form-group col-md-6 col-md-offset-5" id="btnSI">
-                                                    <input type="submit" class="btn btn-success btn-lg" value="Enviar"> 
+                                                    <input type="submit" class="btn btn-success btn-lg" value="Submit"> 
                                                 </div>
                                             </form>
                                         </div>
@@ -767,24 +761,23 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo2">
-                                                <i class="fa fa-pencil"></i>Solicitud de software
+                                                <i class="fa fa-pencil"></i>Request of software
                                             </a>
                                         </h4>
                                     </div>
                                     <div id="collapseTwo2" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <form method="POST" action="php/agregarSolicitudSoftware.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                                            <form method="POST" action="php/agregarSolicitudSoftware.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true">
                                                 <div class="form-group col-md-4">
-                                                    <label >Software que necesita</label>
-                                                    <input type="text" class="form-control" placeholder="Que programa necesita" required autofocus name="software" />
+                                                    <label >Software you need</label>
+                                                    <input type="text" class="form-control" placeholder="What program you need?" required autofocus name="software" />
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <label >Descripcion</label>
-                                                    <textarea class="form-control" placeholder="Razon por la cual necesita el sw" name="descripcion">
-                                                    </textarea>
+                                                    <label >Description</label>
+                                                    <textarea class="form-control" placeholder="Reason why you need the software?" name="descripcion"></textarea>
                                                 </div>
                                                 <div class="form-group col-md-6 col-md-offset-5">
-                                                    <button class="btn btn-success btn-lg">Enviar</button> 
+                                                    <button class="btn btn-success btn-lg">Sumbit</button> 
                                                 </div>
                                             </form>           
                                         </div>
@@ -814,12 +807,12 @@
                 <div class="container">
                    
                     <div class="row">
-                        <div class="col-md-8 col-lg-8 col-md-offset-4 col-lg-offset-2">
+                        <div class="col-md-8">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
-                                    Mis solicitudes
+                                    My requests
                                 </div>
-                                <div class="panel-body x_content" >
+                                <div class="panel-body">
                                 
                                     
                                     <!-- start project list -->
@@ -827,93 +820,93 @@
                       <thead>
                         <tr>
                           <th style="width: 1%">#</th>
-                          <th style="width: 30%">Descripción</th>
-                          <th style="width: 70%">Acciones</th>
+                          <th style="width: 30%">Description</th>
+                          <th style="width: 70%">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>1</td>
                           <td>
-                            <a>Cuentas de Usuario</a>
+                            <a>User account</a>
                             
                           </td>
                           <td>
                             
-                            <a href="#cuenta-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="cuentaVerClic"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#cuenta-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="cuentaVerClic"><i class="fa fa-folder"></i> See </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs" id="EliminarCuenta"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="EliminarCuenta"><i class="fa fa-trash-o"></i> Delete all</a>
                           </td>
                         </tr>
                         <tr>
                           <td>2</td>
                           <td>
-                            <a>Plataformas Virtuales</a>
+                            <a>Virtual platforms</a>
                             
                           </td>
                           <td>
-                            <a href="#plataformasVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="plataformasVirtualesVerClic"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#plataformasVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="plataformasVirtualesVerClic"><i class="fa fa-folder"></i> See </a>
                          
-                            <a href="#" class="btn btn-danger btn-xs" id="eliminarPlataformasVirtuales"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarPlataformasVirtuales"><i class="fa fa-trash-o"></i> Delete all</a>
                           </td>
                         </tr>
                           <tr>
                           <td>3</td>
                           <td>
-                            <a>Solicitud de Equipo</a>
+                            <a>Equipment request </a>
                             
                           </td>
                           <td>
-                            <a href="#solicitudEquipoVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudEquipoVerClic"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#solicitudEquipoVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudEquipoVerClic"><i class="fa fa-folder"></i> See </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudEquipo"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudEquipo"><i class="fa fa-trash-o"></i> Delete all</a>
                           </td>
                         </tr>
                           <tr>
                           <td>4</td>
                           <td>
-                            <a>Reporte de daños</a>
+                            <a>Damage report</a>
                             
                           </td>
                           <td>
-                            <a href="#reporteDaniosVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="reporteDaniosVerClic"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#reporteDaniosVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="reporteDaniosVerClic"><i class="fa fa-folder"></i> See </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs" id="eliminarDaniosEquipo"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarDaniosEquipo"><i class="fa fa-trash-o"></i> Delete all</a>
                           </td>
                         </tr>
                           <tr>
                           <td>5</td>
                           <td>
-                            <a>Instalación de software</a>
+                            <a>Installation of software</a>
                            
                           </td>
                           <td>
-                            <a href="#instalacionSoftwareVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="instalacionSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#instalacionSoftwareVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="instalacionSoftwareVerClic"><i class="fa fa-folder"></i> See </a>
 
-                            <a href="#" class="btn btn-danger btn-xs" id="eliminarInstalacionSoftware"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarInstalacionSoftware"><i class="fa fa-trash-o"></i> Delete all</a>
                           </td>
                         </tr>
                             <tr>
                           <td>6</td>
                           <td>
-                            <a>Solicitud de software</a>
+                            <a>Request of software</a>
                            
                           </td>
                           <td>
-                            <a href="#solicitudSoftwareVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudSoftwareVerClic"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#solicitudSoftwareVer-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="solicitudSoftwareVerClic"><i class="fa fa-folder"></i> See </a>
                             
-                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudSoftware"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarSolicitudSoftware"><i class="fa fa-trash-o"></i> Delete all</a>
                           </td>
                         </tr>
                             <tr>
                           <td>7</td>
                           <td>
-                            <a>Restricciones de Red</a>
+                            <a>Network restriction</a>
                           </td>
                           <td>
-                            <a href="#restriccionesred-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="restriccionesredClic"><i class="fa fa-folder"></i> Ver </a>
+                            <a href="#restriccionesred-modal" class="btn btn-primary btn-xs" data-toggle="modal" id="restriccionesredClic"><i class="fa fa-folder"></i> See </a>
                            
-                            <a href="#" class="btn btn-danger btn-xs" id="eliminarRestriccionRed"><i class="fa fa-trash-o"></i> Eliminar todo</a>
+                            <a href="#" class="btn btn-danger btn-xs" id="eliminarRestriccionRed"><i class="fa fa-trash-o"></i> Delete all</a>
                           </td>
                         </tr>
                           
@@ -959,7 +952,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseCuenta">Cuenta de Usuario</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseCuenta">User account</a>
                                         </h4>
                                     </div>
                                     <div id="collapseCuenta" class="panel-collapse collapse in">
@@ -968,12 +961,12 @@
 						                      <thead>
 						                        <tr>
 						                          <th>#</th>
-						                          <th>Cuenta</th>
-						                          <th>Nombre</th>
-						                          <th>Nombre de usuario</th>
-						                          <th>Razon</th>
-						                          <th>Estado</th>
-						                          <th>Acciones</th>
+						                          <th>Account </th>
+						                          <th>Name</th>
+						                          <th>Username</th>
+						                          <th>Reason</th>
+						                          <th>Status</th>
+						                          <th>Actions</th>
 						                        </tr>
 						                      </thead>
 						                      <tbody id="tbodyCuenta">                          
@@ -985,7 +978,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapsePassword">Restablecer Cuenta de Usuario</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapsePassword">Reset user account</a>
                                         </h4>
                                     </div>
                                     <div id="collapsePassword" class="panel-collapse collapse">
@@ -994,9 +987,9 @@
 						                      <thead>
 						                        <tr>
 						                          <th>#</th>
-						                          <th>Usuario</th>
-						                          <th>Estado</th>
-						                          <th>Acciones</th>
+						                          <th>User</th>
+						                          <th>Status</th>
+						                          <th>Actions</th>
 						                        </tr>
 						                      </thead>
 						                      <tbody id="tbodyPassword">                          
@@ -1014,7 +1007,7 @@
             </div>
         </div>
         
-        <!-- start reporteDAnios-modal Section -->
+        <!-- start plataforma virtuales-modal Section -->
         <div class="section-modal modal fade" id="plataformasVer-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
@@ -1025,19 +1018,19 @@
                 </div>
                 
                 <div class="container">
-                    <h3 class="tituloTabla">Plataformas Virtuales</h3>
+                    <h3 class="tituloTabla">Virtual platforms</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Falla</th>
-                          <th>Aula</th>
-                          <th>Maquina</th>
-                          <th>Hora</th>
-                          <th>Descripción</th>
-                          <th>Estado</th>
-                          <th>Acciones</th>
+                          <th>Failure</th>
+                          <th>Classroom</th>
+                          <th>Machine</th>
+                          <th>Hour</th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody id="tbodyPlataformasVirtuales">                          
@@ -1096,19 +1089,19 @@
                 </div>
                 
                 <div class="container">
-                    <h3 class="tituloTabla">Solicitud de equipo</h3>
+                    <h3 class="tituloTabla">Equipment request</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Nombre de equipo</th>
-                          <th>Fecha de inicio</th>
-                          <th>Fecha de fin</th>
-                          <th>Descripcion</th>
-                          <th>Lugar</th>
-                          <th>Estado</th>
-                          <th>Acciones</th>
+                          <th>Name of the team</th>
+                          <th>Start date</th>
+                          <th>Ending date</th>
+                          <th>Description</th>
+                          <th>Place</th>
+                          <th>Status</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody id="tbodySolicitudEquipo">                          
@@ -1134,17 +1127,17 @@
                 </div>
                 
                 <div class="container">
-                    <h3 class="tituloTabla">Reporte de daños</h3>
+                    <h3 class="tituloTabla">Damage report</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Maquina</th>
-                          <th>Hora</th>
-                          <th>Descripción</th>
-                          <th>Estado</th>
-                          <th>Acciones</th>
+                          <th>Machine</th>
+                          <th>Hour</th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody id="tbodyReporteDanios">                          
@@ -1168,17 +1161,17 @@
                 </div>
                 
                 <div class="container">
-                	<h3 class="tituloTabla">Instalacion de software</h3>
+                	<h3 class="tituloTabla">Installation of software</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Maquina</th>
+                          <th>Machine</th>
                           <th>Software</th>
-                          <th>Descripción</th>
-                          <th>Estado</th>
-                          <th>Acciones</th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody id="tbodyInstalacionSoftware">                          
@@ -1203,16 +1196,16 @@
                 </div>
                 
                 <div class="container">
-                	<h3 class="tituloTabla">Solicitud de software</h3>
+                	<h3 class="tituloTabla">Request of software</h3>
                     <!--inicio-->
                     <table class="table">
                       <thead>
                         <tr>
                           <th>#</th>
                           <th>Software</th>
-                          <th>Descripción</th>
-                          <th>Estado</th>
-                          <th>Acciones</th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody id="tbodySolicitudSoftware">                          
@@ -1242,10 +1235,10 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Dirección</th>
-                          <th>Descripción</th>
-                          <th>Estado</th>
-                          <th>Acciones</th>
+                          <th>Address</th>
+                          <th>Description</th>
+                          <th>Status</th>
+                          <th>Actions</th>
                         </tr>
                       </thead>
                       <tbody id="tbodyRestricciones">                          
@@ -1271,13 +1264,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="section-title text-center">
-                            <h3>Restricciones de red</h3>
+                            <h3>Network restriction</h3>
                         </div>
                     </div>
                     <div class="row">
-                        <form method="POST" action="php/agregarRestricciones.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>">
+                        <form method="POST" action="php/agregarRestricciones.php?id_usuario=<?php echo $_SESSION['id_usuario'];?>&in=true">
                             <div class="form-group col-md-4">
-                                <label>Aula</label>
+                                <label>Classroom</label>
                                 <select class="form-control" name="aula">
                                     <option>1</option>
                                     <option>2</option>
@@ -1292,21 +1285,20 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <label >Direccion web</label>
-                                <input type="text" class="form-control" placeholder="cual es la direccion restringida" required autofocus name="direccion" />
+                                <label >Web address</label>
+                                <input type="text" class="form-control" placeholder="What is the restricted address" required autofocus name="direccion" />
                             </div>
                             <div class="form-group col-md-4">
-                                <label>Hora</label>
+                                <label>Hour</label>
                                 <label for="HRR"><i class="fa fa-clock-o"></i></label>
                                 <input class="timepickerS form-control" type="text" required name="hora" id="HRR" />
                             </div>
                             <div class="form-group col-md-6">
-                                <label >Descripcion</label>
-                                <textarea class="form-control" placeholder="Razon por la cual quiere tener acceso a la direccion web" name="descripcion">
-                                </textarea>
+                                <label >Description</label>
+                                <textarea class="form-control" placeholder="Reason for which you want access to web address" name="descripcion"></textarea>
                             </div>
                             <div class="form-group col-md-6 col-md-offset-5">
-                                <input type="submit" class="btn btn-success btn-lg" value="Enviar">
+                                <input type="submit" class="btn btn-success btn-lg" value="Submit">
                                 <!--<button class="btn btn-success btn-lg submit">Enviar</button>--> 
                             </div>
                         </form>
@@ -1563,46 +1555,46 @@
                 }
             });
         </script>
-
+        
         <script src="js/jquery.toaster.js"></script>
         <script type="text/javascript">
 
             cambioIdioma = function(e){
-                if(!(e.value === "Español")){
-                    window.location = "menuUser-in.php";
+                if(!(e.value === "English")){
+                    window.location = "menuUser.php";
                 }
             };
             poner = function(e){
                 if(e === "cuenta"){
-                    $.toaster({ priority : 'info', title : 'Cuenta de usuario', message : 'Se agrego correctamente!'});
-                }
-
-                if(e === "restablecer"){
-                    $.toaster({ priority : 'info', title : 'Restablecer cuenta de usuario', message : 'Se agrego correctamente!'});
+                    $.toaster({ priority : 'info', title : 'User Account', message : 'Added sucessfully!'});
                 }
                 
+                if(e === "restablecer"){
+                    $.toaster({ priority : 'info', title : 'Reset user Account', message : 'Added sucessfully!'});
+                }
+
                 if(e === "plataformas_virtuales"){
-                    $.toaster({ priority : 'info', title : 'Plataformas Virtuales', message : 'Se agrego correctamente!'});
+                    $.toaster({ priority : 'info', title : 'Virtual platforms', message : 'Added sucessfully!'});
                 }
 
                 if(e === "solicitud_equipo"){
-                    $.toaster({ priority : 'info', title : 'Solicitud de Equipo', message : 'Se agrego correctamente!'});
+                    $.toaster({ priority : 'info', title : 'Equipment request', message : 'Added sucessfully!'});
                 }
 
                 if(e === "danios_equipo"){
-                    $.toaster({ priority : 'info', title : 'Reporte de Daños', message : 'Se agrego correctamente!'});
+                    $.toaster({ priority : 'info', title : 'Damage report', message : 'Added sucessfully!'});
                 }
 
                 if(e === "solicitud_software"){
-                    $.toaster({ priority : 'info', title : 'Solicitud de Software', message : 'Se agrego correctamente!'});
+                    $.toaster({ priority : 'info', title : 'Request of software', message : 'Added sucessfully!'});
                 }
 
                 if(e === "instalacion_software"){
-                    $.toaster({ priority : 'info', title : 'Instalacion de Software', message : 'Se agrego correctamente!'});
+                    $.toaster({ priority : 'info', title : 'installation of software', message : 'Added sucessfully!'});
                 }
 
                 if(e === "restrinccion_red"){
-                    $.toaster({ priority : 'info', title : 'Restricciones de Red', message : 'Se agrego correctamente!'});
+                    $.toaster({ priority : 'info', title : 'Network restrictions', message : 'Added sucessfully!'});
                 }
 
                 if(e === "password"){
@@ -1626,7 +1618,7 @@
                 }
             }
             
-        </script>              
+        </script>
     </body>
     
 </html>

@@ -4,6 +4,33 @@
 	session_start();
 	$jsondata = json_decode($_POST["json"]);
 
+	if($jsondata->funcion == "buscarByUsuario"){
+		$rawdata = array();
+		$i=0;
+		$query = "SELECT * FROM usuario WHERE usuario LIKE '%". $jsondata->dato ."%';";
+		$resultado = $mysqli->query($query);
+		while($row = mysqli_fetch_array($resultado))
+	    {
+	        $rawdata[$i] = $row;
+	        $i++;
+	    }
+		echo json_encode($rawdata);
+	}
+	if($jsondata->funcion == "buscarRestricciones"){
+		$rawdata = array();
+		$i=0;
+		$query = "SELECT * FROM restrinccion_red WHERE id_usuario = '".$jsondata->id_usuario."';";
+		$resultado = $mysqli->query($query);
+		while($row = mysqli_fetch_array($resultado))
+	    {
+	        $rawdata[$i] = $row;
+	        $i++;
+	    }
+		echo json_encode($rawdata);
+	}
+	
+	
+
 	if($jsondata->funcion == "restriccion_red"){
 		$rawdata = array();
 		$i=0;
@@ -113,7 +140,7 @@
 	    }
 		echo json_encode($rawdata);
 	}
-	if($jsondata->funcion == "eliminar_danios_reporte"){
+	if($jsondata->funcion == "eliminar_danios_equipo"){
 		$id_danios_equipo = $jsondata->id_danios_equipo;
 		$rawdata = array();
 		$i=0;

@@ -66,13 +66,11 @@ $(function(){
 	}
 	$("#enviarmensaje").click(function(e){
 		var mensaje = $("#status_message").val();
-		console.log(mensaje);
 		var dat = {
 			"mensaje" : mensaje,
 			"funcion" : "setmensaje"
 		}
 		var jsonC = JSON.stringify(dat);
-		console.log(jsonC);
 		$.ajax({
 			url : "php/chat.php",
 			type : "POST",

@@ -197,7 +197,7 @@
                         
                         <div class="menu-item color">
                             <p>
-                            	NovaDesk allows us to explore and to expedite the processes of NovaUniversitas, implementing hi-tech, to have a performance optimal between students, teachers and technical personnel.
+                            	NovaDesk allows us to explore and to expedite the processes of NovaUniversitas, implementing hi-tech, to have a optimal     performance between students, teachers and technical personnel.
                             </p>
                         </div>
                         

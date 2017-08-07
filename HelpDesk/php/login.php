@@ -7,7 +7,6 @@
 		$password = $_GET['password'];
 	}
 
-	
 	$query = "SELECT * FROM usuario WHERE usuario = '".$usuario."';";
 	echo $query;
 	$resultado = $mysqli->query($query);

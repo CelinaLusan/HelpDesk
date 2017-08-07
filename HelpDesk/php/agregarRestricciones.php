@@ -6,6 +6,7 @@
 	$direccion = isset($_POST['direccion']) ? $_POST['direccion'] : '';
 	$hora = isset($_POST['hora']) ? $_POST['hora'] : '';
 	$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+	$in = isset($_GET['in']) ? $_GET['in'] : '';
 	
 	echo $id_usuario."<br>";
 	echo $aula."<br>";
@@ -21,12 +22,23 @@
 	$query = "INSERT INTO restrinccion_red (id_aula, id_usuario, direccion, descripcion, hora, id_estado) VALUES ('".$id_aula."','".$id_usuario."','".$direccion."','".$descripcion."','".$hora."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
-	if($mysqli->affected_rows > 0){
-		echo "se hizo";
-		header("location:../menuUser.php?restrinccion_red=true");
-	}
-	else{
-		header("location:../menuUser.php?restrinccion_red=false");
-		echo "NO se hizo";	
+	if($in == true){
+		if($mysqli->affected_rows > 0){
+			echo "se hizo";
+			header("location:../menuUser-in.php?restrinccion_red=true");
+		}
+		else{
+			header("location:../menuUser-in.php?restrinccion_red=false");
+			echo "NO se hizo";	
+		}
+	}else{
+		if($mysqli->affected_rows > 0){
+			echo "se hizo";
+			header("location:../menuUser.php?restrinccion_red=true");
+		}
+		else{
+			header("location:../menuUser.php?restrinccion_red=false");
+			echo "NO se hizo";	
+		}
 	}
 ?>

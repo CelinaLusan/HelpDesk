@@ -7,6 +7,7 @@
 	$fechafin = isset($_POST['fechafin']) ? $_POST['fechafin'] : '';
 	$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
 	$lugar = isset($_POST['lugar']) ? $_POST['lugar'] : '';
+	$in = isset($_GET['in']) ? $_GET['in'] : '';
 	
 	echo $id_usuario."<br>";
 	echo $nombre_equipo."<br>";
@@ -18,12 +19,24 @@
 	$query = "INSERT INTO solicitud_equipo (nombre_equipo, fecha_inicio, fecha_fin, lugar, descripcion, id_usuario, id_estado) VALUES ('".$nombre_equipo."','".$fechainicio."','".$fechafin."','".$lugar."','".$descripcion."','".$id_usuario."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
-	if($mysqli->affected_rows > 0){
-		echo "se hizo";
-		header("location:../menuUser.php?solicitud_equipo=true");
+	if($in == true){
+		if($mysqli->affected_rows > 0){
+			echo "se hizo";
+			header("location:../menuUser-in.php?solicitud_equipo=true");
+		}
+		else{
+			echo "NO se hizo";	
+			header("location:../menuUser-in.php?solicitud_equipo=false");
+		}
 	}
 	else{
-		echo "NO se hizo";	
-		header("location:../menuUser.php?solicitud_equipo=false");
+		if($mysqli->affected_rows > 0){
+			echo "se hizo";
+			header("location:../menuUser.php?solicitud_equipo=true");
+		}
+		else{
+			echo "NO se hizo";	
+			header("location:../menuUser.php?solicitud_equipo=false");
+		}
 	}
 ?>

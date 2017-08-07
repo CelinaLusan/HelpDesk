@@ -4,14 +4,12 @@ $(function(){
 			"funcion" : "getusers"
 		}
 		var jsonC = JSON.stringify(dat);
-		console.log(jsonC);
 		$.ajax({
 			url : "php/chatAdmin.php",
 			type : "POST",
 			data : 'json=' + jsonC,
 			dataType: "json",
 			success : function(res){
-				console.log(res);
 				var template = "";
 				$("#listaUsers").html("");
 				$.each(res, function(key,value){
@@ -55,14 +53,12 @@ $(function(){
 		});
 	}
 	function getchat(id_usuario){
-		console.log(id_usuario);
 		
 		var dat = {
 			"funcion" 		: "getchats",
 			"id_usuario" 	: id_usuario
 		}
 		var jsonC = JSON.stringify(dat);
-		console.log(jsonC);
 		$.ajax({
 			url : "php/chatAdmin.php",
 			type : "POST",
@@ -148,6 +144,6 @@ $(function(){
 		});
 	});
 	
-	var GetUsers = new getUsers();
+	setInterval(getUsers,1000);
 	
 });

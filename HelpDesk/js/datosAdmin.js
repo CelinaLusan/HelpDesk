@@ -1,4 +1,121 @@
 $(function(){
+	buscarTodo = function(e){
+		var buscar = e.value;
+		var dat = {
+			"funcion"	: "buscarByUsuario",
+			"dato" 		: buscar
+		}
+		var jsonC = JSON.stringify(dat);
+		$.ajax({
+			url: "php/datosAdmin.php",
+			type: "POST",
+			data : 'json=' + jsonC,
+			dataType: "json",
+			success : function(res){
+				$("#tbodyBuscador").html("");	
+				var template = "";
+				$.each(res, function(key,value){
+					var dat = {
+						"funcion"		: "buscarRestricciones",
+						"id_usuario" 	: value['id_usuario'] 
+					}	
+					var jsonC = JSON.stringify(dat);
+					var restriccion_red = $.ajax({
+						url: "php/datosAdmin.php",
+						type: "POST",
+						data : 'json=' + jsonC,
+						dataType: "json",
+						success : function(res){
+							return res;
+						},
+						error : function(err) {
+							console.log(err);
+						}
+					});
+					console.log(restriccion_red);
+					restriccion_red = restriccion_red.responseJSON;
+					console.log(restriccion_red);
+					$.each(restriccion_red, function(key,valus){
+						console.log(valus['id_restrinccion_red']);	
+					});		
+				});
+				console.log(template);
+				$("#tbodyBuscador").html(template);	
+			},
+			error : function(err) {
+				console.log(err);
+			}
+		});
+
+	}
+	$("#actualizaruserbtn").click(function(event) {
+		//alert("dsds");
+		var nombreusuario = $("#busquser").val();
+		var nombreusuariou = $("#nombreuseru").val();
+		var restablecer = $("#restapass").prop('checked');
+		var nombre = $("#nombreu").val();
+		var apellidomate = $("#apellidomu").val();
+		var apellidopate = $("#apellidopu").val();
+
+		$("#busquser").val("");
+		$("#nombreuseru").val("");
+		$("#restapass").prop('checked');
+		$("#nombreu").val("");
+		$("#apellidomu").val("");
+		$("#apellidopu").val("");
+
+
+		var dat = {
+			"funcion" : "updateuser",
+			"nombreusuario" : nombreusuario,
+			"nombreusuariou" : nombreusuariou,
+			"restablecer" : restablecer,
+			"nombre" : nombre,
+			"apellidopate" : apellidopate,
+			"apellidomate" : apellidomate
+		}
+		var jsonC = JSON.stringify(dat);
+		$.ajax({
+			url: "php/actualizarUsuario.php",
+			type: "POST",
+			data : 'json=' + jsonC,
+			dataType: "json",
+			success : function(res){
+				alert("datos guardados");
+				$('#moduser-modal').click();
+			},
+			error : function(err) {
+				console.log(err);
+			}
+		});
+	});
+
+	$("#buscaruserbtn").click(function(e){
+		var nombreusuario = $("#busquser").val();
+		var dat = {
+			"funcion" : "buscaruserfunct",
+			"nombreusuario" : nombreusuario
+		}
+		var jsonC = JSON.stringify(dat);
+		$.ajax({
+			url : "php/actualizarUsuario.php",
+			type : "POST",
+			data : 'json=' + jsonC,
+			dataType: "json",
+			success : function(res){
+				console.log(res);
+				$("#nombreuseru").val(res[0].usuario);
+				$("#contraseniau").val();
+				$("#nombreu").val(res[0].nombre);
+				$("#apellidopu").val(res[0].apellido_paterno);
+				$("#apellidomu").val(res[0].apellido_materno);	
+			},
+			error : function(err){
+				console.log(err);
+			}
+		});
+	});
+	
 	eliminarRestrinccion = function (id_restrinccion_red){
 		var dat = {
 			"id_restrinccion_red"	: id_restrinccion_red, 
@@ -532,6 +649,7 @@ $(function(){
 	});
 
 	eliminarReporteDanios = function (id_danios_equipo){
+		console.log("asasd");
 		var dat = {
 			"id_danios_equipo"	: id_danios_equipo, 
 			"funcion" 					: "eliminar_danios_equipo"

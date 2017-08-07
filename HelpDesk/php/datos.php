@@ -131,7 +131,7 @@
 	    }
 		echo json_encode($rawdata);
 	}
-	if($jsondata->funcion == "eliminarPlataformasVirtuales"){
+	if($jsondata->funcion == "eliminar_plataformas_virtuales"){
 		$id_plataformas_virtuales = $jsondata->id_plataformas_virtuales;
 		$rawdata = array();
 		$i=0;

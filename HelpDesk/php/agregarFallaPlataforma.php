@@ -7,6 +7,7 @@
 	$maquina = isset($_POST['maquina']) ? $_POST['maquina'] : '';
 	$descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
 	$hora = isset($_POST['hora']) ? $_POST['hora'] : '';
+	$in = isset($_GET['in']) ? $_GET['in'] : '';
 	
 	echo $id_usuario."<br>";
 	echo $aula."<br>";
@@ -23,12 +24,25 @@
 	$query = "INSERT INTO plataformas_virtuales (falla, id_aula, maquina, hora, descripcion, id_usuario, id_estado) VALUES ('".$falla."','".$id_aula."','".$maquina."','".$hora."','".$descripcion."','".$id_usuario."','3');";
 	echo $query;
 	$resultado = $mysqli->query($query);
-	if($mysqli->affected_rows > 0){
-		echo "se hizo";
-		header("location:../menuUser.php?plataformas_virtuales=true");
+	if($in == true){
+		if($mysqli->affected_rows > 0){
+			echo "se hizo";
+			header("location:../menuUser-in.php?plataformas_virtuales=true");
+		}
+		else{
+			header("location:../menuUser-in.php?plataformas_virtuales=false");
+			echo "NO se hizo";	
+		}
 	}
 	else{
-		header("location:../menuUser.php?plataformas_virtuales=false");
-		echo "NO se hizo";	
+		if($mysqli->affected_rows > 0){
+			echo "se hizo";
+			header("location:../menuUser.php?danios_equipo=true");
+		}
+		else{
+			header("location:../menuUser.php?danios_equipo=false");
+			echo "NO se hizo";	
+		}
 	}
+
 ?>

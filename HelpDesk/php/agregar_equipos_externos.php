@@ -15,6 +15,7 @@
 	if(isset($_GET['razon'])){
 		$razon = $_GET['razon'];
 	}
+	$in = isset($_GET['in']) ? $_GET['in'] : '';
 
 	echo $id_usuario."<br>";
 	echo $equipo."<br>";
